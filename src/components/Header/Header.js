@@ -1,10 +1,10 @@
 import React from 'react';
-import NavBar from '../NavBar/NavBar';
+import Navigation from '../Navigation/Navigation';
 
 const Header = () => {
     return (
         <div className="w-full">
-            <NavBar></NavBar>
+            <Navigation></Navigation>
         </div>
     );
 };
