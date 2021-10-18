@@ -5,7 +5,7 @@ import useData from '../../Hooks/useData';
 import Included from '../Included/Included';
 const TrainingDetail = () => {
     const { trainingId } = useParams();
-    const [trainings] = useData();
+    const { trainings } = useData();
     const [training, setTraining] = useState({});
     useEffect(() => {
         setTraining(trainings.find(item => parseInt(trainingId) === parseInt(item.id)));

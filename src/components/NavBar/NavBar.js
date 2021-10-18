@@ -91,7 +91,7 @@ const NavBar = () => {
                     <Route exact path="/"><Home></Home></Route>
                     <Route exact path="/home"><Home></Home></Route>
                     <Route exact path="/consultation"><Consultation></Consultation></Route>
-                    <Route exact path="/membership"><Success></Success></Route>
+                    <Route exact path="/success"><Success></Success></Route>
                     <Route exact path="/progress"><Progress></Progress></Route>
                     <Route exact path="/about"><About></About></Route>
                     <Route exact path="/detail/:trainingId"><TrainingDetail></TrainingDetail></Route>

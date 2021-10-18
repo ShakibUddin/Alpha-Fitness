@@ -1,12 +1,12 @@
 import React from 'react';
 import Loading from 'react-loading-animation';
-import useTrainingJson from '../../Hooks/useTrainingJson';
+import useData from '../../Hooks/useData';
 import Hero from '../Hero/Hero';
 import ProgrammeCard from '../ProgrammeCard/ProgrammeCard';
 
 
 const Home = () => {
-    const [trainings] = useTrainingJson();
+    const { trainings } = useData();
     return (
         <div className="w-full flex flex-col items-center">
             <Hero></Hero>
