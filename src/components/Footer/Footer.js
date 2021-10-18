@@ -10,7 +10,7 @@ const Footer = () => {
                 <SocialIcon url="https://github.com/ShakibUddin?fbclid=IwAR2RG4-MqYLetKV2oQdQkVDFrnMxVLA08cT14UaNHMTHFBhBC92H6LEQWoQ" />
                 <SocialIcon url="linkedin.com/in/md-shakib-uddin" />
             </div>
-            <p className="text-white text-xl">Copyright © 2021 CODEMASTER</p>
+            <p className="text-white text-xl">Copyright © 2021 Alpha Fitness</p>
         </div>
     );
 };
