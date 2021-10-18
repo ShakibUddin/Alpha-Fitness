@@ -4,7 +4,7 @@ import './App.css';
 
 function App() {
   return (
-    <div className="w-full mx-auto flex flex-col justify-center">
+    <div className="w-full mx-auto flex flex-col items-center">
       <Header></Header>
       <Footer></Footer>
     </div>

@@ -3,7 +3,7 @@ import ProgressIndicator from 'react-loading-animation';
 import useCourse from '../../hooks/useCourses';
 import SpecificCoursesCards from '../SpecificCoursesCards/SpecificCoursesCards';
 
-const Programs = () => {
+const Programmes = () => {
     let [fundamentals, fullstack, frontend, mobile, backend] = useCourse();
     return (
         <div className="container justify-items-start flex-wrap">
@@ -22,4 +22,4 @@ const Programs = () => {
     );
 };
 
-export default Programs;
+export default Programmes;

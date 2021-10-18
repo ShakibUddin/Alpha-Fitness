@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Membership = () => {
+const Success = () => {
     return (
         <div>
-            Membership
+            Success
         </div>
     );
 };
 
-export default Membership;
+export default Success;
