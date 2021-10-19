@@ -25,7 +25,7 @@ const useFirebase = () => {
                 setUser(loggedInUser);
             })
             .catch(error => {
-                console.log(error.message);
+                setError(error.code);
             })
             .finally(() => setIsLoading(false));
     }
@@ -42,9 +42,7 @@ const useFirebase = () => {
                 setUser(loggedInUser);
             })
             .catch(error => {
-                if (error.message === "Firebase: Error (auth/account-exists-with-different-credential).") {
-                    console.log("User with same email already exists")
-                }
+                setError(error.code);
             })
             .finally(() => setIsLoading(false));
     }
@@ -58,10 +56,7 @@ const useFirebase = () => {
                 setError("");
             })
             .catch((error) => {
-                const errorMessage = error.message;
-                if (errorMessage === 'Firebase: Error (auth/wrong-password).' || errorMessage === 'Firebase: Error (auth/user-not-found).') {
-                    setError("Invalid email/password");
-                }
+                setError(error.code);
 
             }).finally(() => setIsLoading(false));
     }
@@ -77,8 +72,7 @@ const useFirebase = () => {
                 });
             })
             .catch((error) => {
-                const errorMessage = error.message;
-                setError(errorMessage);
+                setError(error.code);
             }).finally(() => setIsLoading(false));
     }
 
