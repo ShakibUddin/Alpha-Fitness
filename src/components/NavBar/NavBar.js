@@ -19,7 +19,7 @@ const NavBar = () => {
     }
     return (
         <div>
-            <Disclosure as="nav" className="bg-gray-800 w-full">
+            <Disclosure as="nav" className="bg-gray-700 w-full">
                 {({ open }) => (
                     <>
                         <div className="w-full mx-auto px-2">
