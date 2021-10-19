@@ -7,7 +7,7 @@ const FeeCard = (props) => {
             <p className="font-extrabold text-4xl p-3  text-center text-black">{title}</p>
             <ul className="w-dull p-3 m-3 list-disc">
                 {
-                    features.map(item => <li>{item}</li>)
+                    features.map((item, index) => <li key={index}>{item}</li>)
                 }
             </ul>
             <p className="font-extrabold text-4xl p-3  text-center text-yellow-600">${price}/Month</p>

@@ -12,7 +12,7 @@ const Home = () => {
     return (
         <div className="w-full flex flex-col items-center">
             <Hero></Hero>
-            <p className="text-4xl font-bold text-center">Tainings</p>
+            <p className="font-bold text-4xl uppercase p-3 mt-16 mb-2 text-black">Tainings</p>
             {
                 trainings ?
                     <div className="w-full mx-auto flex flex-wrap justify-center">
@@ -26,7 +26,6 @@ const Home = () => {
 
             <p className="font-bold text-4xl uppercase p-3 mt-16 mb-2 text-black">GYM ACCESS</p>
             <MembershipFee></MembershipFee>
-
 
             <p className="font-bold text-4xl uppercase p-3 mt-16 mb-2 text-black">Recent Stories</p>
             <Stories></Stories>

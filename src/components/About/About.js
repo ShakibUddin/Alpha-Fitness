@@ -30,7 +30,7 @@ const About = () => {
             </div>
             <div className="flex flex-wrap justify-center">
                 {
-                    gymImages.map(image => <img className="w-1/4" style={{ minWidth: "300px" }} src={image} alt="" />)
+                    gymImages.map((image, index) => <img key={index} className="w-1/4" style={{ minWidth: "300px" }} src={image} alt="" />)
                 }
             </div>
             <div className="w-full flex flex-wrap justify-evenly">

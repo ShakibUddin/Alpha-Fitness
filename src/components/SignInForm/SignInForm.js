@@ -31,7 +31,7 @@ const SignInForm = () => {
 
     }).required();
     const formOptions = { resolver: yupResolver(validationSchema) };
-    const { register, handleSubmit, watch, formState: { errors } } = useForm(formOptions);
+    const { register, handleSubmit, formState: { errors } } = useForm(formOptions);
     const onSubmit = data => {
         console.log(data);
         if (data.password !== data.confirmPassword) errors.confirmPassword = true;

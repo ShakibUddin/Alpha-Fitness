@@ -3,14 +3,7 @@ import consultationbg from '../../images/consultation.jpg';
 
 
 const Consultation = () => {
-    const options = [
-        'one', 'two', 'three'
-    ];
-    const defaultOption = options[0];
 
-    const getTrainer = (e) => {
-        console.log(e.target.value);
-    }
     return (
         <div className="w-full flex flex-col mx-auto">
             <div className="relative">

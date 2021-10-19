@@ -3,6 +3,7 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
+import avatar from '../../images/avatar.png';
 
 const NavBar = () => {
     const { user, logout } = useAuth();
@@ -13,7 +14,7 @@ const NavBar = () => {
         { name: 'Success', to: '/success' },
         { name: 'About', to: '/about' },
     ];
-    const dummyImage = "http://dreamvilla.life/wp-content/uploads/2017/07/dummy-profile-pic.png";
+
     function classNames(...classes) {
         return classes.filter(Boolean).join(' ')
     }
@@ -68,7 +69,7 @@ const NavBar = () => {
                                                 <span className="sr-only">Open user menu</span>
                                                 <img
                                                     className="h-8 w-8 rounded-full"
-                                                    src={user.photo ? user.photo : dummyImage}
+                                                    src={user.photo ? user.photo : avatar}
                                                     alt=""
                                                 />
                                             </Menu.Button>
@@ -97,7 +98,7 @@ const NavBar = () => {
                                         </Transition>
                                     </Menu>
                                 </div>}
-                                {!user.email && <Link className="w-20 bg-white p-2 rounded-md font-semibold uppercase text-center text-red-500" to="/signin">Join</Link>}
+                                {!user.email && <Link className="w-20 bg-yellow-500 p-2 rounded-md font-semibold uppercase text-center text-white" to="/signin">Join</Link>}
                             </div>
                         </div>
 
