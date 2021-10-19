@@ -1,11 +1,12 @@
 
+import { faGithub, faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useHistory, useLocation } from "react-router-dom";
 import * as Yup from 'yup';
 import useAuth from '../../Hooks/useAuth';
-
 
 const SignInForm = () => {
     const {
@@ -62,10 +63,10 @@ const SignInForm = () => {
             <p className="p-5">or</p>
 
             <div className="w-2/4 flex justify-around">
-                <button className="px-4 p-2 bg-yellow-300 text-black" onClick={() => handleGoogleSignIn().then(() => { redirectUserAfterSignIn() })}>Google</button>
-                <button className="px-4 p-2 bg-gray-800 text-white" onClick={() => handleGithubSignIn().then(() => {
+                <button className="px-4 p-2 text-2xl border-2 text-black" onClick={() => handleGoogleSignIn().then(() => { redirectUserAfterSignIn() })}><FontAwesomeIcon icon={faGoogle} /></button>
+                <button className="px-4 p-2 text-2xl border-2 text-black" onClick={() => handleGithubSignIn().then(() => {
                     redirectUserAfterSignIn();
-                })}>Github</button>
+                })}><FontAwesomeIcon icon={faGithub} /></button>
             </div>
         </form>
     );

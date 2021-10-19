@@ -5,11 +5,11 @@ import AuthProvider from '../../Contexts/AuthProvider';
 import DataProvider from '../../Contexts/DataProvider';
 import About from "../About/About";
 import Consultation from "../Consultation/Consultation";
+import HIITClass from "../HIITClass/HIITClass";
 import Home from "../Home/Home";
 import NavBar from '../NavBar/NavBar';
 import NotFound from "../NotFound/NotFound";
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
-import Progress from "../Progress/Progress";
 import SignInForm from '../SignInForm/SignInForm';
 import SignUpForm from '../SignUpForm/SignUpForm';
 import Success from "../Success/Success";
@@ -29,7 +29,7 @@ const Navigation = () => {
                         <Route exact path="/home"><Home></Home></Route>
                         <PrivateRoute exact path="/consultation"><Consultation></Consultation></PrivateRoute>
                         <Route exact path="/success"><Success></Success></Route>
-                        <PrivateRoute exact path="/progress"><Progress></Progress></PrivateRoute>
+                        <PrivateRoute exact path="/hiitclass"><HIITClass></HIITClass></PrivateRoute>
                         <Route exact path="/about"><About></About></Route>
                         <Route exact path="/detail/:trainingId"><TrainingDetail></TrainingDetail></Route>
                         <Route exact path="/signin"><SignInForm></SignInForm></Route>

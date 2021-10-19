@@ -22,7 +22,7 @@ const TrainingDetail = () => {
                     </div>
                     <div>
                         <p className="font-bold lg:text-6xl md:text-4xl text-3xl py-3 text-cente text-blue-300 absolute top-5 left-8">{training.name}</p>
-                        <p className="font-bold text-2xl py-3 text-center text-white text-white absolute top-20 left-8">{training.duration}</p>
+                        <p className="font-bold text-2xl py-3 text-center text-white absolute top-20 left-8">{training.duration}</p>
                         <p className="font-bold text-xl py-3 text-white text-white absolute top-40 left-8">{training.description}</p>
                     </div>
                 </div>
@@ -33,7 +33,10 @@ const TrainingDetail = () => {
                     {
                         training["included"]?.map(item => <Included key={item.title} data={item}></Included>)
                     }
+
                 </div>
+                <p className="font-extrabold text-5xl p-3  text-center text-yellow-600">${training.price}</p>
+                <button className="w-3/5 mx-auto my-3 font-extrabold text-4xl p-5  text-center bg-yellow-400 border- text-black uppercase">Order Now</button>
             </div>
             :
             <Loading></Loading>
