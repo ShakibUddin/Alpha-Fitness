@@ -1,5 +1,5 @@
-import Footer from '../Footer/Footer';
-import Header from '../Header/Header';
+import Footer from '../Pages/Shared/Footer/Footer';
+import Header from '../Pages/Shared/Header/Header';
 import './App.css';
 
 function App() {

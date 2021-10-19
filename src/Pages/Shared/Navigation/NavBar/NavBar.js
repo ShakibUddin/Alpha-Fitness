@@ -2,7 +2,7 @@ import { Disclosure } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import useAuth from '../../Hooks/useAuth';
+import useAuth from '../../../../Hooks/useAuth';
 
 const NavBar = () => {
     const { user, logout } = useAuth();

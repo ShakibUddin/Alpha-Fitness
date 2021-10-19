@@ -1,9 +1,9 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import one from "../../images/1.jpg";
-import two from "../../images/2.jpg";
-import three from "../../images/3.jpg";
+import one from "../../../images/1.jpg";
+import two from "../../../images/2.jpg";
+import three from "../../../images/3.jpg";
 
 const Hero = () => {
     return (

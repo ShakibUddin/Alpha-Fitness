@@ -1,7 +1,7 @@
 import React from 'react';
 import useData from '../../Hooks/useData';
 import successbg from '../../images/success.jpg';
-import SuccessCard from '../SuccessCard/SuccessCard';
+import SuccessCard from './SuccessCard/SuccessCard';
 
 const Success = () => {
     const { successes } = useData();

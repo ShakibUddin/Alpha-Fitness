@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Loading from 'react-loading-animation';
 import { useParams } from 'react-router';
 import useData from '../../Hooks/useData';
-import Included from '../Included/Included';
+import Included from './Included/Included';
 const TrainingDetail = () => {
     const { trainingId } = useParams();
     const { trainings } = useData();

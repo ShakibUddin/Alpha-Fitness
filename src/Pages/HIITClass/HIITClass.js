@@ -1,7 +1,7 @@
 import React from 'react';
 import useData from "../../Hooks/useData";
 import hiitZone from '../../images/hitzone.jpg';
-import HIItCard from '../HIItCard/HIItCard';
+import HIItCard from './HIItCard/HIItCard';
 
 const HIITClass = () => {
     const { HIITClasses } = useData();

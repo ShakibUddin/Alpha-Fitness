@@ -1,10 +1,10 @@
 import React from 'react';
 import Loading from 'react-loading-animation';
 import useData from '../../Hooks/useData';
-import Hero from '../Hero/Hero';
-import MembershipFee from '../MembershipFee/MembershipFee';
-import ProgrammeCard from '../ProgrammeCard/ProgrammeCard';
-import Stories from '../Stories/Stories';
+import Hero from './Hero/Hero';
+import MembershipFee from './MembershipFee/MembershipFee';
+import Stories from './Stories/Stories';
+import TrainingCard from './TrainingCard/TrainingCard';
 
 
 const Home = () => {
@@ -17,7 +17,7 @@ const Home = () => {
                 trainings ?
                     <div className="w-full mx-auto flex flex-wrap justify-center">
                         {
-                            trainings.map(item => <ProgrammeCard key={item.id} data={item}></ProgrammeCard>)
+                            trainings.map(item => <TrainingCard key={item.id} data={item}></TrainingCard>)
                         }
                     </div>
                     :

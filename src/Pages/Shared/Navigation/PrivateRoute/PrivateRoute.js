@@ -1,7 +1,7 @@
 import React from 'react';
 import Loading from 'react-loading-animation';
 import { Redirect, Route } from 'react-router';
-import useAuth from '../../Hooks/useAuth';
+import useAuth from '../../../../Hooks/useAuth';
 
 const PrivateRoute = ({ children, ...rest }) => {
     const { user, isLoading } = useAuth();

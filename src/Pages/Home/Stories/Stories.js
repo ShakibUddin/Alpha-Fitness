@@ -1,6 +1,6 @@
 import React from 'react';
-import useData from "../../Hooks/useData";
-import StoryCard from "../StoriesCard/StoriesCard";
+import useData from "../../../Hooks/useData";
+import StoryCard from "./StoriesCard/StoriesCard";
 
 const Stories = () => {
     const { stories } = useData();
