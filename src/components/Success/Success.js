@@ -1,5 +1,6 @@
 import React from 'react';
 import useData from '../../Hooks/useData';
+import successbg from '../../images/success.jpg';
 import SuccessCard from '../SuccessCard/SuccessCard';
 
 const Success = () => {
@@ -10,7 +11,7 @@ const Success = () => {
             <div className="relative">
                 <div className="bg-gray-600">
                     <div className="mix-blend-multiply">
-                        <img className="w-screen h-screen object-cover" src="https://images.pexels.com/photos/2294361/pexels-photo-2294361.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" />
+                        <img className="w-screen h-screen object-cover" src={successbg} alt="" />
                     </div>
                 </div>
                 <div>
