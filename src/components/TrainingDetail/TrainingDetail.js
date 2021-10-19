@@ -23,7 +23,7 @@ const TrainingDetail = () => {
                     <div>
                         <p className="font-bold lg:text-6xl md:text-4xl text-3xl py-3 text-cente text-blue-300 absolute top-5 left-8">{training.name}</p>
                         <p className="font-bold text-2xl py-3 text-center text-white absolute top-20 left-8">{training.duration}</p>
-                        <p className="font-bold text-xl py-3 text-white text-white absolute top-40 left-8">{training.description}</p>
+                        <p className="font-bold text-xl py-3 text-white absolute top-40 left-8">{training.description}</p>
                     </div>
                 </div>
                 <div className="m-8">

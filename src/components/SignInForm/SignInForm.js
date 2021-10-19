@@ -45,24 +45,24 @@ const SignInForm = () => {
     }
 
     return (
-        <form className="w-6/12 mx-auto p-5 m-5 flex flex-col justify-center items-center" onSubmit={handleSubmit(onSubmit)}>
+        <form className="lg:w-6/12 w-11/12 mx-auto p-5 m-5 flex flex-col justify-center items-center" onSubmit={handleSubmit(onSubmit)}>
             <p className="text-4xl py-10 font-extrabold">SignIn</p>
             {alert && <p className="p-3 text-center bg-red-400 text-black">{alert}</p>}
 
-            <input className="w-2/4 p-3 my-5 border-2 rounded-md" type="text" placeholder="Enter Email" {...register("email")} />
-            {errors.email && <p className="w-2/4 bg-red-500 p-3 text-center text-white">{errors.email?.message}</p>}
+            <input className="lg:w-2/4 w-3/4 p-3 my-5 border-2 rounded-md" type="text" placeholder="Enter Email" {...register("email")} />
+            {errors.email && <p className="lg:w-2/4 w-3/4 bg-red-500 p-3 text-center text-white">{errors.email?.message}</p>}
 
-            <input className="w-2/4 p-3 my-5 border-2 rounded-md" type="password" placeholder="Enter Password" {...register("password")} />
-            {errors.password && <p className="w-2/4 bg-red-500 p-3 text-center text-white">{errors.password?.message}</p>}
+            <input className="lg:w-2/4 w-3/4 p-3 my-5 border-2 rounded-md" type="password" placeholder="Enter Password" {...register("password")} />
+            {errors.password && <p className="lg:w-2/4 w-3/4 bg-red-500 p-3 text-center text-white">{errors.password?.message}</p>}
 
-            <input className="w-2/4 mx-auto px-4 p-2 bg-blue-600 rounded-md text-white" type="submit" />
-            {error && <p className="w-2/4 bg-red-500 p-3 text-center text-white">{error}</p>}
+            <input className="lg:w-2/4 w-3/4 mx-auto px-4 p-2 bg-blue-600 rounded-md text-white" type="submit" />
+            {error && <p className="lg:w-2/4 w-3/4 bg-red-500 p-3 text-center text-white">{error}</p>}
 
             <p className="p-5">Don't have an account? <Link className="text-blue-800" to='./signup'>Register</Link></p>
 
             <p className="p-5">or</p>
 
-            <div className="w-2/4 flex justify-around">
+            <div className="lg:w-2/4 w-3/4 flex justify-around">
                 <button className="px-4 p-2 text-2xl border-2 text-black" onClick={() => handleGoogleSignIn().then(() => { redirectUserAfterSignIn() })}><FontAwesomeIcon icon={faGoogle} /></button>
                 <button className="px-4 p-2 text-2xl border-2 text-black" onClick={() => handleGithubSignIn().then(() => {
                     redirectUserAfterSignIn();
