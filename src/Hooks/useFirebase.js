@@ -22,6 +22,7 @@ const useFirebase = () => {
                     photo: photoURL,
                     emailVerified: emailVerified
                 };
+                setError("");
                 setUser(loggedInUser);
             })
             .catch(error => {
@@ -39,6 +40,7 @@ const useFirebase = () => {
                     photo: photoURL,
                     emailVerified: emailVerified
                 };
+                setError("");
                 setUser(loggedInUser);
             })
             .catch(error => {
