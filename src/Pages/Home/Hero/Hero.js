@@ -11,10 +11,10 @@ const Hero = (props) => {
     return (
         <div className="w-full h-screen object-cover bg-fixed bg-blue-600 bg-blend-multiply" style={{ backgroundImage: `url(${mainbg})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
             <div className="w-full h-5/6 flex flex-col justify-center items-center">
-                <p className="lg:text-8xl md:text-6xl sm:text-3xl font-extrabold text-white uppercase">No <span className="text-yellow-400">Pain</span> No <span className="text-yellow-400">Gain</span></p>
-                <p className="lg:text-4xl md:text-3xl sm:text-2xl font-extrabold text-white">Join Today and Become <span className="text-yellow-400">The Alpha</span></p>
+                <p className="lg:text-8xl md:text-6xl text-3xl font-extrabold text-white uppercase">No <span className="text-yellow-400">Pain</span> No <span className="text-yellow-400">Gain</span></p>
+                <p className="lg:text-4xl md:text-3xl text-xl font-extrabold text-white">Join Today and Become <span className="text-yellow-400">The Alpha</span></p>
                 <Link to={path}>
-                    <button className="p-5 my-3 mx-auto bg-yellow-600 text-white uppercase font-bold transform -skew-x-12 border-4 border-yellow-600 text-2xl" onClick={scrollTo}>Get Started</button></Link>
+                    <button className="p-5 my-3 mx-auto bg-yellow-600 text-white uppercase font-bold transform -skew-x-12 border-4 border-yellow-600 lg:text-2xl text-xl" onClick={scrollTo}>Get Started</button></Link>
             </div>
         </div>
     );
