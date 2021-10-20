@@ -1,6 +1,6 @@
 import React from 'react';
 import useData from "../../../Hooks/useData";
-import FeeCard from '../FeeCard/FeeCard';
+import FeeCard from './FeeCard/FeeCard';
 const MembershipFee = () => {
     const { membershipFees } = useData();
     return (

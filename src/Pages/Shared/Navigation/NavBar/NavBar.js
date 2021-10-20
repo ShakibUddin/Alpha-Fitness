@@ -3,6 +3,7 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../../Hooks/useAuth';
+import logo from '../../../../images/logo.jpg';
 
 const NavBar = () => {
     const { user, logout } = useAuth();
@@ -19,7 +20,7 @@ const NavBar = () => {
     }
     return (
         <div>
-            <Disclosure as="nav" className="bg-gray-700 w-full">
+            <Disclosure as="nav" className="bg-black w-full">
                 {({ open }) => (
                     <>
                         <div className="w-full flex flex-wrap justify-between">
@@ -39,9 +40,12 @@ const NavBar = () => {
                                     {/* logo code */}
                                     <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                                         <div className="flex-shrink-0 flex items-center">
+                                            <div className="w-14">
+                                                <img className="w-full" src={logo} alt="" />
+                                            </div>
                                             <p className="text-2xl text-white font-bold">Alpha Fitness</p>
                                         </div>
-                                        <div className="hidden sm:block sm:ml-6">
+                                        <div className="hidden sm:block sm:ml-6 my-auto">
                                             <div className="flex space-x-4">
                                                 {navigation.map((item) => (
                                                     <Link
@@ -62,7 +66,7 @@ const NavBar = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="flex flex-col items-center w-full   lg:w-1/6">
+                            <div className="flex lg:flex-row lg:justify-end flex-col lg:items-end items-center sm:mb-3 md:mb-3 w-full mx-3 lg:w-2/6">
                                 {user.name ? <p className="text-white p-2">{user.name}</p> : <p className="text-white p-2">{user.email}</p>}
                                 {!user.email ? <Link className="w-20 bg-yellow-500 p-2 rounded-md font-semibold uppercase text-center text-white" to="/signin">Join</Link> : <Link className="p-2 font-semibold text-white bg-yellow-500 uppercase" onClick={logout} to="/home">Logout</Link>}
                             </div>
