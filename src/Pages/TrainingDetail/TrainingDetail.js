@@ -14,17 +14,10 @@ const TrainingDetail = () => {
     return (
         training ?
             <div className="w-full flex flex-col mx-auto">
-                <div className="relative">
-                    <div className="bg-gray-600">
-                        <div className="mix-blend-multiply">
-                            <img className="w-screen h-screen object-cover" src={training.image} alt="" />
-                        </div>
-                    </div>
-                    <div>
-                        <p className="font-bold lg:text-6xl md:text-4xl text-3xl py-3 text-cente text-blue-300 absolute top-5 left-8">{training.name}</p>
-                        <p className="font-bold text-2xl py-3 text-center text-white absolute top-20 left-8">{training.duration}</p>
-                        <p className="font-bold text-xl py-3 text-white absolute top-40 left-8">{training.description}</p>
-                    </div>
+                <div className="w-full h-screen object-cover bg-fixed bg-blue-800 bg-blend-multiply relative" style={{ backgroundImage: `url(${training.image})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
+                    <p className="font-bold lg:text-6xl md:text-4xl text-3xl py-3 text-cente text-yellow-400 absolute top-5 left-8">{training.name}</p>
+                    <p className="font-bold text-2xl py-3 text-center text-white absolute top-20 left-8">{training.duration}</p>
+                    <p className="font-bold text-xl py-3 text-white absolute top-40 left-8">{training.description}</p>
                 </div>
                 <div className="m-8">
                     <p className="font-bold text-4xl uppercase p-3 text-black">Who's it for</p>
