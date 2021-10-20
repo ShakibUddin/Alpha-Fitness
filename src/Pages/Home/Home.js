@@ -15,7 +15,7 @@ const Home = () => {
             <p className="font-bold text-4xl uppercase p-3 mt-16 mb-2 text-black">Tainings</p>
             {
                 trainings ?
-                    <div className="w-full mx-auto flex flex-wrap justify-center">
+                    <div className="w-full mx-auto flex flex-wrap justify-center bg-white">
                         {
                             trainings.map(item => <TrainingCard key={item.id} data={item}></TrainingCard>)
                         }
