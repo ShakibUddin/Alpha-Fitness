@@ -1,13 +1,15 @@
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import "animate.css/animate.min.css";
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 
 const TrainingCard = (props) => {
     //destructuring course data
     const { id, name, duration, description, image } = props.data;
     return (
-        <div style={{ minWidth: "300px" }} className="w-2/5 m-6 flex flex-col justify-between shadow-2xl rounded-lg overflow-hidden relative ">
+        <div data-aos="zoom-in" style={{ minWidth: "300px" }} className="w-2/5 m-6 flex flex-col justify-between shadow-2xl rounded-lg overflow-hidden relative ">
             <div className="bg-gray-500">
                 <div className="mix-blend-multiply">
                     <img className="w-full h-80" src={image} alt="" />

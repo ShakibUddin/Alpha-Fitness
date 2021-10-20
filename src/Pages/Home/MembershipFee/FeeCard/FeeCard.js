@@ -1,3 +1,4 @@
+import "animate.css/animate.min.css";
 import React from 'react';
 
 const FeeCard = (props) => {

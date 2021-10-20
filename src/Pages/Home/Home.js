@@ -6,7 +6,6 @@ import MembershipFee from './MembershipFee/MembershipFee';
 import Stories from './Stories/Stories';
 import TrainingCard from './TrainingCard/TrainingCard';
 
-
 const Home = () => {
     const { trainings } = useData();
     const traininsRef = React.createRef();
@@ -17,7 +16,7 @@ const Home = () => {
             <p className="font-bold text-4xl uppercase p-3 mt-16 mb-2 text-black">Tainings</p>
             {
                 trainings ?
-                    <div ref={traininsRef} className="w-full mx-auto flex flex-wrap justify-center bg-white">
+                    <div ref={traininsRef} className="w-full mx-auto flex flex-wrap justify-center">
                         {
                             trainings.map(item => <TrainingCard key={item.id} data={item}></TrainingCard>)
                         }

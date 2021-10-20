@@ -5,7 +5,7 @@ import StoryCard from "./StoriesCard/StoriesCard";
 const Stories = () => {
     const { stories } = useData();
     return (
-        <div className="w-full flex flex-col justify-center bg-white">
+        <div className="w-full flex flex-col justify-cente">
             <div className="flex flex-wrap justify-evenly">
                 {
                     stories.map(item => <StoryCard key={item.id} data={item}></StoryCard>)
