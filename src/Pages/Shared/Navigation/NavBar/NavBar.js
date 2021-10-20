@@ -67,9 +67,9 @@ const NavBar = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="flex lg:flex-row lg:justify-end flex-col lg:items-end items-center sm:mb-3 md:mb-3 w-full mx-3 lg:w-2/6">
+                            <div className="flex lg:flex-row lg:justify-end flex-col  items-center w-full mx-3 lg:w-2/6">
                                 {user.name ? <p className="text-white p-2">{user.name}</p> : <p className="text-white p-2">{user.email}</p>}
-                                {!user.email ? <Link className="w-20 bg-yellow-500 p-2 rounded-md font-semibold uppercase text-center text-white" to="/signin">Join</Link> : <Link className="p-2 font-semibold text-white bg-yellow-500 uppercase" onClick={logout} to="/home">Logout</Link>}
+                                {!user.email ? <Link className="w-20 bg-yellow-500 p-2 rounded-md font-semibold uppercase text-center text-white" to="/signin">Join</Link> : <Link className="p-2 font-semibold text-white bg-yellow-500 uppercase " onClick={logout} to="/home">Logout</Link>}
                             </div>
                         </div>
                         <Disclosure.Panel className="sm:hidden">

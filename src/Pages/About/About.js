@@ -8,15 +8,8 @@ const About = () => {
     const gymImages = [gym1, gym2, gym3, gym4];
     return (
         <div className="w-full mx-auto flex flex-col items-center">
-            <div className="relative">
-                <div className="bg-gray-600">
-                    <div className="mix-blend-multiply">
-                        <img className="w-screen h-screen object-cover" src={gym} alt="" />
-                    </div>
-                </div>
-                <div>
-                    <p className="font-bold lg:text-6xl md:text-4xl text-4xl py-3 text-cente text-blue-300 absolute top-1/4 left-10 ">‘The clock is ticking. Are you becoming the person you want to be?’ — Greg Plitt, fitness model</p>
-                </div>
+            <div className="w-full h-screen object-cover bg-fixed bg-blue-600 bg-blend-multiply relative" style={{ backgroundImage: `url(${gym})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
+                <p className="font-bold text-3xl text-center lg:text-7xl py-3 text-yellow-400 absolute top-40">‘The clock is ticking. Are you becoming the person you want to be?’ — Greg Plitt, fitness model</p>
             </div>
             <div className="w-full flex flex-wrap justify-evenly">
                 <div className="w-2/4 flex flex-col items-center" style={{ minWidth: "250px" }}>

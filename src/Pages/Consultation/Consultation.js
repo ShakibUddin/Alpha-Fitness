@@ -7,7 +7,7 @@ const Consultation = () => {
     return (
         <div className="w-full flex flex-col mx-auto" >
             <div className="w-full h-screen object-cover bg-fixed bg-blue-600 bg-blend-multiply relative" style={{ backgroundImage: `url(${consultationbg})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
-                <p className="font-bold text-3xl text-center lg:text-7xl py-3 text-yellow-400 absolute top-40 left-8 uppercase">Talk to our fitness experts & get that alpha shape</p>
+                <p className="font-bold text-3xl text-center lg:text-7xl py-3 text-yellow-400 absolute top-40 uppercase">Talk to our fitness experts & get that alpha shape</p>
             </div>
 
             <div className="lg:w-6/12 w-11/12 mx-auto p-5 m-5 flex flex-col items-center justify-center" >
