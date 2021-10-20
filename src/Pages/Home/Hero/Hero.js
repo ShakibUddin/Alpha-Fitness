@@ -12,7 +12,7 @@ const Hero = (props) => {
         props.destinationRef.current.scrollIntoView();
     }
     return (
-        <div className="w-full h-screen object-cover bg-fixed bg-blue-600 bg-blend-multiply relative" style={{ backgroundImage: `url(${mainbg})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
+        <div className="w-full h-screen object-cover bg-fixed bg-blue-600 bg-blend-multiply relative" style={{ backgroundImage: `url(${mainbg})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", backgroundPosition: "center" }}>
             <div className="w-full h-5/6 flex flex-col justify-center items-center">
                 <p className="lg:text-8xl md:text-6xl text-3xl font-extrabold text-white uppercase">No <span className="text-yellow-400">Pain</span> No <span className="text-yellow-400">Gain</span></p>
                 <p className="lg:text-4xl md:text-3xl text-xl font-extrabold text-white">Join Today and Become <span className="text-yellow-400">The Alpha</span></p>

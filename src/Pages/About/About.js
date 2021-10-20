@@ -8,7 +8,7 @@ const About = () => {
     const gymImages = [gym1, gym2, gym3, gym4];
     return (
         <div className="w-full mx-auto flex flex-col items-center">
-            <div className="w-full h-screen object-cover bg-fixed bg-blue-600 bg-blend-multiply relative" style={{ backgroundImage: `url(${gym})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}>
+            <div className="w-full h-screen object-cover bg-fixed bg-blue-600 bg-blend-multiply relative" style={{ backgroundImage: `url(${gym})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }}>
                 <p className="font-bold text-3xl text-center lg:text-7xl py-3 text-yellow-400 absolute top-40">‘The clock is ticking. Are you becoming the person you want to be?’ — Greg Plitt, fitness model</p>
             </div>
             <div className="w-full flex flex-wrap justify-evenly">
