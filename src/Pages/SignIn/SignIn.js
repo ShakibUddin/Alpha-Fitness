@@ -33,7 +33,6 @@ const SignIn = () => {
     const formOptions = { resolver: yupResolver(validationSchema) };
     const { register, handleSubmit, formState: { errors } } = useForm(formOptions);
     const onSubmit = data => {
-        console.log(data);
         if (data.password !== data.confirmPassword) errors.confirmPassword = true;
         handleFirebaseEmailSignIn(data.email, data.password).then(() => {
             redirectUserAfterSignIn();
