@@ -5,7 +5,7 @@ import AuthProvider from '../../../Contexts/AuthProvider';
 import DataProvider from '../../../Contexts/DataProvider';
 import About from "../../About/About";
 import Consultation from "../../Consultation/Consultation";
-import HIITClass from "../../HIITClass/HIITClass";
+import HIITClass from '../../HIITClass/HIITClass';
 import Home from "../../Home/Home";
 import NotFound from "../../NotFound/NotFound";
 import SignIn from '../../SignIn/SignIn';
