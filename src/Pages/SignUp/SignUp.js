@@ -55,7 +55,7 @@ const SignUp = () => {
             <input className="lg:w-2/4 w-3/4 p-3 my-2 border-2 rounded-md" type="password" placeholder="Confirm Password" {...register("confirmPassword")} />
             {errors.confirmPassword && <p className="lg:w-2/4 w-3/4 text-start text-red-600 font-bold">{errors.confirmPassword?.message}</p>}
 
-            <input className="lg:w-2/4 w-3/4 mx-auto px-4 p-2 bg-blue-600 rounded-md text-white" type="submit" name="SIGNUP" />
+            <input className="lg:w-2/4 w-3/4 mx-auto px-4 p-2 bg-blue-600 rounded-md text-white cursor-pointer" type="submit" name="SIGNUP" />
             {error && <p className="lg:w-2/4 w-3/4 text-start text-red-600 font-bold">{error}</p>}
             <p className="py-5">Already have an account? <Link className="text-blue-800" to='/signin'>Login</Link></p>
         </form>
