@@ -5,7 +5,6 @@ import AuthProvider from '../../../Contexts/AuthProvider';
 import DataProvider from '../../../Contexts/DataProvider';
 import About from "../../About/About";
 import Consultation from "../../Consultation/Consultation";
-import HIITClass from '../../HIITClass/HIITClass';
 import Home from "../../Home/Home";
 import NotFound from "../../NotFound/NotFound";
 import SignIn from '../../SignIn/SignIn';
@@ -30,7 +29,6 @@ const Navigation = () => {
                         <Route exact path="/home"><Home></Home></Route>
                         <PrivateRoute exact path="/consultation"><Consultation></Consultation></PrivateRoute>
                         <Route exact path="/success"><Success></Success></Route>
-                        <Route exact path="/hiitclass"><HIITClass></HIITClass></Route>
                         <PrivateRoute exact path="/specialclass"><SpecialClasses></SpecialClasses></PrivateRoute>
                         <Route exact path="/about"><About></About></Route>
                         <PrivateRoute exact path="/detail/:trainingId"><TrainingDetail></TrainingDetail></PrivateRoute>
