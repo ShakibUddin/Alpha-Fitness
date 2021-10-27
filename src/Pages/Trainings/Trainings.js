@@ -1,9 +1,9 @@
 import React from 'react';
 import Loading from 'react-loading-animation';
-import useData from '../../../Hooks/useData';
-import TrainingCard from '../TrainingCard/TrainingCard';
+import useData from '../../Hooks/useData';
+import TrainingCard from './TrainingCard/TrainingCard';
 
-const Trainings = (props) => {
+const Trainings = () => {
     const { trainings } = useData();
     return (
         <div className="w-full flex flex-col items-center">
@@ -12,7 +12,7 @@ const Trainings = (props) => {
                 trainings ?
                     <div className="w-full mx-auto flex flex-wrap justify-center">
                         {
-                            trainings.map(item => <TrainingCard key={item.id} data={item}></TrainingCard>)
+                            trainings.map(item => <TrainingCard key={item._id} data={item}></TrainingCard>)
                         }
                     </div>
                     :

@@ -8,13 +8,13 @@ const TrainingDetail = () => {
     const { trainings } = useData();
     const [training, setTraining] = useState({});
     useEffect(() => {
-        setTraining(trainings.find(item => parseInt(trainingId) === parseInt(item.id)));
+        setTraining(trainings.find(item => parseInt(trainingId) === parseInt(item._id)));
     }, [trainings, trainingId]);
 
     return (
         training ?
             <div className="w-full flex flex-col mx-auto">
-                <div className="w-full h-screen object-cover bg-fixed bg-blue-800 bg-blend-multiply relative" style={{ backgroundImage: `url(${training.image})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }}>
+                <div className="w-full h-64 object-cover bg-fixed bg-blue-800 bg-blend-multiply " style={{ backgroundImage: `url(${training.image})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }}>
                     <p className="font-bold lg:text-6xl md:text-4xl text-3xl py-3 text-cente text-yellow-400 absolute top-5 left-8">{training.name}</p>
                     <p className="font-bold text-2xl py-3 text-center text-white absolute top-20 left-8">{training.duration}</p>
                     <p className="font-bold text-xl py-3 text-white absolute top-40 left-8">{training.description}</p>

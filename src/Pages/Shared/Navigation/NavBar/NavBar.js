@@ -9,6 +9,7 @@ const NavBar = () => {
     const { user, logout } = useAuth();
     const navigation = [
         { name: 'Home', to: '/home' },
+        { name: 'Trainings', to: '/trainings' },
         { name: 'Consultation', to: '/consultation' },
         { name: 'Success', to: '/success' },
         { name: 'About', to: '/about' },
