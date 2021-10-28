@@ -5,13 +5,14 @@ import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import useFirebase from "../../../Hooks/useFirebase";
 import mainbg from "../../../images/mainbg.jpg";
+import Services from '../Services/Services';
 
 const Hero = () => {
     const { user } = useFirebase();
     const path = !user.email && "/signin";
     const history = useHistory();
     function goTo() {
-        history.push("/trainigs");
+        history.push("/trainings");
     }
     return (
         <div className="w-full h-screen object-cover bg-fixed bg-blue-600 bg-blend-multiply relative" style={{ backgroundImage: `url(${mainbg})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", backgroundPosition: "center" }}>
@@ -24,6 +25,7 @@ const Hero = () => {
                 </Link>
                 <p className="text-white text-3xl font-bold absolute bottom-1/4"><FontAwesomeIcon className="mr-2" icon={faArrowDown} /></p>
             </div>
+            <Services></Services>
         </div>
     );
 };

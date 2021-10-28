@@ -4,7 +4,7 @@ const SpecialClassCard = (props) => {
     const { title, description, image } = props.data;
     const index = props.index;
     return (
-        <div style={{ minWidth: "300px" }} className={`m-6 flex lg:flex-row flex-col justify-start shadow-2xl rounded-lg overflow-hidden w-8/12 bg-white lg:${index % 2 === 0 && "flex-row-reverse"}`}>
+        <div style={{ minWidth: "300px" }} className={`m-6 flex lg:flex-row flex-col justify-start shadow-2xl  overflow-hidden w-8/12 bg-white lg:${index % 2 === 0 && "flex-row-reverse"}`}>
             <div className="lg:w-2/4 w-full h-full">
                 <img className="w-full h-full object-cover" src={image} alt="" />
             </div>

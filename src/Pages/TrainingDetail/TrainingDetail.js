@@ -29,7 +29,7 @@ const TrainingDetail = () => {
 
                 </div>
                 <p className="font-extrabold text-5xl p-3  text-center text-yellow-600">${training.price}</p>
-                <button className="w-3/5 mx-auto my-3 font-extrabold text-4xl p-5  text-center bg-yellow-400 border- text-black uppercase">Order Now</button>
+                <button className="w-3/5 mx-auto my-3 font-extrabold text-4xl p-5  text-center bg-yellow-400 border- text-black uppercase">Join</button>
             </div>
             :
             <Loading></Loading>
