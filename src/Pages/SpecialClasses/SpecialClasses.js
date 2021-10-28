@@ -7,7 +7,7 @@ const SpecialClasses = () => {
     const { specialClasses } = useData();
     return (
         <div className="w-full flex flex-col justify-center">
-            <div className="w-full h-64 object-cover bg-fixed bg-blue-600 bg-blend-multiply " style={{ backgroundImage: `url(${specialbg})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }}>
+            <div className="w-full h-96 object-cover bg-fixed bg-blue-600 bg-blend-multiply " style={{ backgroundImage: `url(${specialbg})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }}>
                 <p className="font-bold text-3xl lg:text-7xl md:text-5xl text-center  py-3 text-yellow-400 uppercase">Join our special class and persue excellence</p>
             </div>
             <div className="flex flex-wrap justify-evenly">

@@ -5,8 +5,8 @@ import consultationbg from '../../images/consultation.jpg';
 const Consultation = () => {
 
     return (
-        <div className="w-full flex flex-col mx-auto" >
-            <div className="w-full h-64 object-cover bg-fixed bg-blue-600 bg-blend-multiply " style={{ backgroundImage: `url(${consultationbg})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }}>
+        <div className="w-full mx-auto flex flex-col items-center " >
+            <div className="w-full h-96 object-cover bg-fixed bg-blue-600 bg-blend-multiply " style={{ backgroundImage: `url(${consultationbg})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }}>
                 <p className="font-bold text-3xl lg:text-7xl md:text-5xl text-center  py-3 text-yellow-400 uppercase">Talk to our fitness experts & get that alpha shape</p>
             </div>
 

@@ -62,10 +62,16 @@ const SignIn = () => {
             <p className="p-5">or</p>
 
             <div className="lg:w-2/4 w-3/4 flex justify-around">
-                <button className="px-4 p-2 text-2xl border-2 text-black" onClick={() => handleGoogleSignIn().then(() => { redirectUserAfterSignIn() })}><FontAwesomeIcon icon={faGoogle} /></button>
-                <button className="px-4 p-2 text-2xl border-2 text-black" onClick={() => handleGithubSignIn().then(() => {
-                    redirectUserAfterSignIn();
-                })}><FontAwesomeIcon icon={faGithub} /></button>
+                <button className="px-4 p-2 text-2xl border-2 text-black" onClick={(e) => {
+                    e.preventDefault();
+                    handleGoogleSignIn().then(() => { redirectUserAfterSignIn() })
+                }}><FontAwesomeIcon icon={faGoogle} /></button>
+                <button className="px-4 p-2 text-2xl border-2 text-black" onClick={(e) => {
+                    e.preventDefault();
+                    handleGithubSignIn().then(() => {
+                        redirectUserAfterSignIn();
+                    })
+                }}><FontAwesomeIcon icon={faGithub} /></button>
             </div>
         </form>
     );

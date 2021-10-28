@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch as RouteSwitch } from 'react-router-dom';
 import AuthProvider from '../../../Contexts/AuthProvider';
 import DataProvider from '../../../Contexts/DataProvider';
 import About from "../../About/About";
+import CheckOut from '../../CheckOut/CheckOut';
 import Consultation from "../../Consultation/Consultation";
 import Home from "../../Home/Home";
 import NotFound from "../../NotFound/NotFound";
@@ -34,6 +35,7 @@ const Navigation = () => {
                         <PrivateRoute exact path="/specialclass"><SpecialClasses></SpecialClasses></PrivateRoute>
                         <Route exact path="/about"><About></About></Route>
                         <Route exact path="/detail/:trainingId"><TrainingDetail></TrainingDetail></Route>
+                        <PrivateRoute exact path="/checkout/:trainingId"><CheckOut></CheckOut></PrivateRoute>
                         <Route exact path="/signin"><SignIn></SignIn></Route>
                         <Route exact path="/signup"><SignUp></SignUp></Route>
                         <Route path="*"><NotFound></NotFound></Route>

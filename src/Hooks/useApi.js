@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+const axios = require('axios').default;
 
-let useJson = () => {
+let useApi = () => {
     const [trainings, setTrainings] = useState([]);
     const [successes, setSuccesses] = useState([]);
     const [membershipFees, setMembershipFees] = useState([]);
@@ -14,54 +15,39 @@ let useJson = () => {
     const specialClassesUrl = 'https://gist.githubusercontent.com/ShakibUddin/533230c85e00a6f7f9ae360678ad5c7f/raw/e542794d7a1e65e4dd832f729dfc52490e3a2939/specialClasses.json';
 
     useEffect(() => {
-        fetch(trainingsUrl)
+        axios.get(trainingsUrl)
             .then(response => {
-                return response.json();
-            })
-            .then(json => {
-                setTrainings(json);
+                setTrainings(response.data);
             })
             .catch(e => console.log(e));
     }, []);
 
 
     useEffect(() => {
-        fetch(successesUrl)
+        axios.get(successesUrl)
             .then(response => {
-                return response.json();
-            })
-            .then(json => {
-                setSuccesses(json);
+                setSuccesses(response.data);
             }).catch(e => console.log(e));
     }, []);
 
     useEffect(() => {
-        fetch(membershipFeesUrl)
+        axios.get(membershipFeesUrl)
             .then(response => {
-                return response.json();
-            })
-            .then(json => {
-                setMembershipFees(json);
+                setMembershipFees(response.data);
             }).catch(e => console.log(e));
     }, []);
 
     useEffect(() => {
-        fetch(storiesUrl)
+        axios.get(storiesUrl)
             .then(response => {
-                return response.json();
-            })
-            .then(json => {
-                setStories(json);
+                setStories(response.data);
             });
     }, []);
 
     useEffect(() => {
-        fetch(specialClassesUrl)
+        axios.get(specialClassesUrl)
             .then(response => {
-                return response.json();
-            })
-            .then(json => {
-                setSpecialClasses(json);
+                setSpecialClasses(response.data);
             });
     }, []);
 
@@ -69,4 +55,4 @@ let useJson = () => {
     return { trainings, setTrainings, successes, setSuccesses, membershipFees, setMembershipFees, stories, setStories, specialClasses, setSpecialClasses };
 }
 
-export default useJson;
+export default useApi;
