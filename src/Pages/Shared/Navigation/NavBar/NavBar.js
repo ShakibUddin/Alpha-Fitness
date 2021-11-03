@@ -4,6 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../../Hooks/useAuth';
 import avatar from '../../../../images/avatar.png';
+import logo from '../../../../images/logo.jpg';
 
 const NavBar = () => {
     const { user, logout } = useAuth();
@@ -39,9 +40,12 @@ const NavBar = () => {
                                 {/* logo code */}
                                 <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                                     <div className="flex-shrink-0 flex items-center">
-                                        <p className="text-2xl text-white font-bold">Alpha Fitness</p>
+                                        <div className="w-14">
+                                            <img className="w-full" src={logo} alt="" />
+                                        </div>
+                                        <p className="lg:text-2xl md:text-2xl sm:text-xl text-white font-bold">Alpha Fitness</p>
                                     </div>
-                                    <div className="hidden sm:block sm:ml-6">
+                                    <div className="hidden sm:block sm:ml-6 my-auto">
                                         <div className="flex space-x-4">
                                             {navigation.map((item) => (
                                                 <Link
@@ -49,7 +53,7 @@ const NavBar = () => {
                                                     to={item.to}
                                                     className={classNames(
                                                         'text-gray-300 hover:bg-gray-700 hover:text-white',
-                                                        'px-3 py-2 rounded-md text-sm font-medium'
+                                                        'px-3 py-1 rounded-md text-sm font-medium'
                                                     )}
                                                 >
                                                     {item.name}
@@ -102,7 +106,7 @@ const NavBar = () => {
                             </div>
                         </div>
 
-                        <Disclosure.Panel className="sm:hidden">
+                        <Disclosure.Panel className="sm:hidden items-center">
                             <div className="px-2 pt-2 pb-3 space-y-1">
                                 {navigation.map((item) => (
                                     <Link
