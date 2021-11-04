@@ -5,9 +5,9 @@ import AuthProvider from '../../../Contexts/AuthProvider';
 import DataProvider from '../../../Contexts/DataProvider';
 import About from "../../About/About";
 import CheckOut from '../../CheckOut/CheckOut';
-import Consultation from "../../Consultation/Consultation";
 import Home from "../../Home/Home";
 import NotFound from "../../NotFound/NotFound";
+import Payment from '../../Payment/Payment';
 import SignIn from '../../SignIn/SignIn';
 import SignUp from '../../SignUp/SignUp';
 import Success from "../../Success/Success";
@@ -29,7 +29,8 @@ const Navigation = () => {
                         <Route exact path="/"><Home></Home></Route>
                         <Route exact path="/home"><Home></Home></Route>
                         <Route exact path="/trainings"><Trainings></Trainings></Route>
-                        <PrivateRoute exact path="/consultation"><Consultation></Consultation></PrivateRoute>
+                        <Route exact path="/payment"><Payment></Payment></Route>
+                        <Route exact path="/checkout"><CheckOut></CheckOut></Route>
                         <Route exact path="/success"><Success></Success></Route>
                         <Route exact path="/about"><About></About></Route>
                         <Route exact path="/detail/:trainingId"><TrainingDetail></TrainingDetail></Route>
