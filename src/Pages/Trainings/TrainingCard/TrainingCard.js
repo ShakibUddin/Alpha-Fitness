@@ -9,7 +9,7 @@ const TrainingCard = (props) => {
     const { _id, name, duration, description, image } = props.data;
     const route = `/detail/${_id}`;
     return (
-        <div style={{ minWidth: "300px" }} className="lg:w-2/5 md:w-3/5 sm:w-4/5 m-6 flex flex-col justify-between shadow-2xl  overflow-hidden relative bg-white">
+        <div style={{ minWidth: "300px" }} className="lg:w-2/5 md:w-3/5 sm:w-4/5 m-6 flex flex-col justify-between shadow-md  overflow-hidden relative bg-white">
             <div className="bg-gray-500">
                 <div className="mix-blend-multiply">
                     <img className="w-full h-80" src={image} alt="" />

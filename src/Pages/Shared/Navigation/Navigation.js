@@ -10,7 +10,6 @@ import Home from "../../Home/Home";
 import NotFound from "../../NotFound/NotFound";
 import SignIn from '../../SignIn/SignIn';
 import SignUp from '../../SignUp/SignUp';
-import SpecialClasses from '../../SpecialClasses/SpecialClasses';
 import Success from "../../Success/Success";
 import TrainingDetail from '../../TrainingDetail/TrainingDetail';
 import Trainings from '../../Trainings/Trainings';
@@ -32,7 +31,6 @@ const Navigation = () => {
                         <Route exact path="/trainings"><Trainings></Trainings></Route>
                         <PrivateRoute exact path="/consultation"><Consultation></Consultation></PrivateRoute>
                         <Route exact path="/success"><Success></Success></Route>
-                        <PrivateRoute exact path="/specialclass"><SpecialClasses></SpecialClasses></PrivateRoute>
                         <Route exact path="/about"><About></About></Route>
                         <Route exact path="/detail/:trainingId"><TrainingDetail></TrainingDetail></Route>
                         <PrivateRoute exact path="/checkout/:trainingId"><CheckOut></CheckOut></PrivateRoute>

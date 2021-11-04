@@ -87,7 +87,7 @@ const NavBar = () => {
                                             leaveFrom="transform opacity-100 scale-100"
                                             leaveTo="transform opacity-0 scale-95"
                                         >
-                                            <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                            <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-md py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                                                 <Menu.Item>
                                                     {() => (
                                                         user.name ? <p className="text-black p-2">{user.name}</p> : <p className="text-black p-2">{user.email}</p>
@@ -95,14 +95,14 @@ const NavBar = () => {
                                                 </Menu.Item>
                                                 <Menu.Item>
                                                     {({ active }) => (
-                                                        <Link className="p-2 font-semibold text-red-500 uppercase" onClick={logout} to="/home">Logout</Link>
+                                                        <Link className="p-2 font-semibold text-blue-500 uppercase" onClick={logout} to="/home">Logout</Link>
                                                     )}
                                                 </Menu.Item>
                                             </Menu.Items>
                                         </Transition>
                                     </Menu>
                                 </div>}
-                                {!user.email && <Link className="w-20 bg-yellow-500 p-2 rounded-md font-semibold uppercase text-center text-white" to="/signin">Join</Link>}
+                                {!user.email && <Link className="w-20 bg-blue-500 p-2 rounded-md font-semibold uppercase text-center text-white" to="/signin">Join</Link>}
                             </div>
                         </div>
 
