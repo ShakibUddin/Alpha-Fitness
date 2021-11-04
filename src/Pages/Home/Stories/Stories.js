@@ -9,7 +9,7 @@ const Stories = () => {
             <p className="font-bold text-4xl uppercase p-3 mt-16 mb-2 text-blue-500 text-center">Recent Stories</p>
             <div className="flex flex-wrap justify-evenly">
                 {
-                    stories.map(item => <StoryCard key={item.id} data={item}></StoryCard>)
+                    stories.map(item => <StoryCard key={item._id} data={item}></StoryCard>)
                 }
             </div>
         </div>
