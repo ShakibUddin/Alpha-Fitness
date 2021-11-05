@@ -56,7 +56,7 @@ const Home = () => {
                     <button className="lg:w-2/4 md:w-2/4 sm:w-3/4 mr-auto mx-auto  mt-4 text-center bg-white border-white border-2 rounded-md py-3 px-8 font-medium text-blue-500 hover:bg-blue-500 hover:text-white" onClick={handleAskNowClick}>Ask Now</button>
                 </div>
             </div>
-            <div ref={membershipRef}>
+            <div className="w-full" ref={membershipRef}>
                 <MembershipFee></MembershipFee>
             </div>
             <Stories></Stories>

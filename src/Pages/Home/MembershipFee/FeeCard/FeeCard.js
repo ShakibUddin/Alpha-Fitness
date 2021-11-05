@@ -1,16 +1,14 @@
 import React from 'react';
-import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../../Hooks/useAuth';
 
 const FeeCard = (props) => {
     const { title, features, price } = props.data;
     const index = props.index;
-    const history = useHistory();
     const { user } = useAuth();
 
     return (
-        <div style={{ minWidth: "300px", boxShadow: "#B2CAFF 0px 4px 12px" }} className={`w-1/5 flex flex-col justify-between bg-white duration-700 lg:${index % 2 !== 0 && "-mt-8"} my-6 mx-2`} >
+        <div style={{ minWidth: "300px", boxShadow: "#B2CAFF 0px 4px 12px" }} className={`w-1/4 flex flex-col justify-between bg-white duration-700 lg:${index % 2 !== 0 && "-mt-8"} my-6 mx-2`} >
             <p className="font-extrabold text-3xl p-3  text-center text-black">{title}</p>
             <ul className="w-dull p-4 m-3 list-disc">
                 {
