@@ -59,7 +59,7 @@ const SignIn = () => {
 
             <p className="p-5">Don't have an account? <Link className="text-blue-800" to='/signup'>Register</Link></p>
 
-            <p className="p-5">or</p>
+            <p className="p-3">or</p>
 
             <div className="lg:w-2/4 w-3/4 flex justify-around">
                 <button className="px-4 p-2 text-2xl border-2 text-black" onClick={(e) => {
@@ -72,6 +72,18 @@ const SignIn = () => {
                         redirectUserAfterSignIn();
                     })
                 }}><FontAwesomeIcon icon={faGithub} /></button>
+                <button className="px-4 p-2 text-xl border-2 text-white bg-green-600" onClick={(e) => {
+                    e.preventDefault();
+                    handleFirebaseEmailSignIn("admin@gmail.com", "admin123").then(() => {
+                        redirectUserAfterSignIn();
+                    });
+                }}>Admin</button>
+                <button className="px-4 p-2 text-xl border-2 text-white bg-yellow-600" onClick={(e) => {
+                    e.preventDefault();
+                    handleFirebaseEmailSignIn("user@gmail.com", "user123").then(() => {
+                        redirectUserAfterSignIn();
+                    });
+                }}>User</button>
             </div>
         </form>
     );

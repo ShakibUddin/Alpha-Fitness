@@ -29,7 +29,7 @@ const Navigation = () => {
                         <Route exact path="/"><Home></Home></Route>
                         <Route exact path="/home"><Home></Home></Route>
                         <Route exact path="/trainings"><Trainings></Trainings></Route>
-                        <Route exact path="/payment"><Payment></Payment></Route>
+                        <PrivateRoute exact path="/payment"><Payment></Payment></PrivateRoute>
                         <Route exact path="/checkout"><CheckOut></CheckOut></Route>
                         <Route exact path="/success"><Success></Success></Route>
                         <Route exact path="/about"><About></About></Route>

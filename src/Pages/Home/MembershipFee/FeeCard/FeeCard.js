@@ -17,7 +17,7 @@ const FeeCard = (props) => {
             </ul>
             <div className="flex flex-col items-center">
                 <p className="font-extrabold text-3xl p-3  text-center text-blue-600">${price}/Month</p>
-                <Link className="w-full text-center" to={user.email ? "/payment" : "/signin"}><button className="w-3/5 mx-auto my-3 font-bold text-xl p-3  text-center bg-blue-400  text-white uppercase -mb-6 rounded-3xl">Join Now</button></Link>
+                <Link className="w-full text-center" to="/payment"><button className="w-3/5 mx-auto my-3 font-bold text-xl p-3  text-center bg-blue-400  text-white uppercase -mb-6 rounded-3xl">Join Now</button></Link>
             </div>
         </div >
     );
