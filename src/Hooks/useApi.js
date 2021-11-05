@@ -7,13 +7,11 @@ let useApi = () => {
     const [successes, setSuccesses] = useState([]);
     const [membershipFees, setMembershipFees] = useState([]);
     const [stories, setStories] = useState([]);
-    const [specialClasses, setSpecialClasses] = useState([]);
 
     const trainingsUrl = 'http://localhost:5000/trainings';
     const successesUrl = 'http://localhost:5000/successes';
     const queriesUrl = 'http://localhost:5000/queries';
     const storiesUrl = 'http://localhost:5000/stories';
-    const specialClassesUrl = 'http://localhost:5000/special-classes';
     const membershipFeesUrl = 'http://localhost:5000/memberships';
 
 
@@ -34,13 +32,6 @@ let useApi = () => {
     }, []);
 
     useEffect(() => {
-        axios.get(specialClassesUrl)
-            .then(response => {
-                setSpecialClasses(response.data);
-            }).catch(e => console.log(e));
-    }, []);
-
-    useEffect(() => {
         axios.get(membershipFeesUrl)
             .then(response => {
                 setMembershipFees(response.data);
@@ -51,13 +42,6 @@ let useApi = () => {
         axios.get(storiesUrl)
             .then(response => {
                 setStories(response.data);
-            });
-    }, []);
-
-    useEffect(() => {
-        axios.get(specialClassesUrl)
-            .then(response => {
-                setSpecialClasses(response.data);
             });
     }, []);
 
@@ -84,7 +68,7 @@ let useApi = () => {
                 )
             })
     }
-    return { trainings, setTrainings, successes, setSuccesses, membershipFees, setMembershipFees, stories, setStories, specialClasses, submitUserMessage };
+    return { trainings, setTrainings, successes, setSuccesses, membershipFees, setMembershipFees, stories, setStories, submitUserMessage };
 }
 
 export default useApi;

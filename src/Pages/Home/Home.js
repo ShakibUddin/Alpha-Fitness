@@ -7,12 +7,15 @@ import instructor from '../../images/instructor.png';
 import Hero from './Hero/Hero';
 import MembershipFee from './MembershipFee/MembershipFee';
 import Services from './Services/Services';
+import Slider from './Slider/Slider';
 import Stories from './Stories/Stories';
 
 const Home = () => {
     const { user } = useAuth();
     const { submitUserMessage } = useData();
     const history = useHistory();
+    const membershipRef = React.createRef();
+
     const handleAskNowClick = () => {
         if (user.email) {
             Swal.fire({
@@ -37,11 +40,13 @@ const Home = () => {
     }
     return (
         <div className="w-full flex flex-col items-center">
-            <Hero></Hero>
+            <Hero gotoOnGetStartedClick={membershipRef}></Hero>
             <div className="w-full max-h-full -mt-24">
                 <Services></Services>
             </div>
-            <div className="w-full flex flex-wrap my-48 justify-center items-center bg-blue-500">
+            <Slider></Slider>
+            {/* consultation section */}
+            <div className="w-full flex flex-wrap my-20 justify-center items-center bg-blue-500">
                 <div style={{ minWidth: "300px" }} className="lg:inline-block md:inline-block hidden lg:w-1/3 md:w-2/4">
                     <img className="w-full lg:-mt-36" src={instructor} alt="" />
                 </div>
@@ -51,7 +56,9 @@ const Home = () => {
                     <button className="lg:w-2/4 md:w-2/4 sm:w-3/4 mr-auto mx-auto  mt-4 text-center bg-white border-white border-2 rounded-md py-3 px-8 font-medium text-blue-500 hover:bg-blue-500 hover:text-white" onClick={handleAskNowClick}>Ask Now</button>
                 </div>
             </div>
-            <MembershipFee></MembershipFee>
+            <div ref={membershipRef}>
+                <MembershipFee></MembershipFee>
+            </div>
             <Stories></Stories>
         </div >
     );
