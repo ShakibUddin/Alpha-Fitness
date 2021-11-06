@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import Swal from 'sweetalert2';
+import { developmentUrl, productionUrl } from "../Constants/Constants";
 const axios = require('axios').default;
 
 let useApi = () => {
+
+    const development = false;
+    const serverUrl = development ? developmentUrl : productionUrl;
 
     const [trainings, setTrainings] = useState([]);
     const [successes, setSuccesses] = useState([]);
@@ -10,12 +14,12 @@ let useApi = () => {
     const [stories, setStories] = useState([]);
     const [purchaseSaved, setPurchaseSaved] = useState(false);
 
-    const trainingsUrl = 'http://localhost:5000/trainings';
-    const successesUrl = 'http://localhost:5000/successes';
-    const queriesUrl = 'http://localhost:5000/queries';
-    const storiesUrl = 'http://localhost:5000/stories';
-    const membershipsUrl = 'http://localhost:5000/memberships';
-    const purchasesUrl = 'http://localhost:5000/purchase';
+    const trainingsUrl = `${serverUrl}/trainings`;
+    const successesUrl = `${serverUrl}/successes`;
+    const queriesUrl = `${serverUrl}/queries`;
+    const storiesUrl = `${serverUrl}/stories`;
+    const membershipsUrl = `${serverUrl}/memberships`;
+    const purchasesUrl = `${serverUrl}/purchase`;
 
 
     useEffect(() => {

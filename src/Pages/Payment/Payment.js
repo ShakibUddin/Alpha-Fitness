@@ -38,7 +38,7 @@ const Payment = () => {
             history.push('/home');
             setPurchaseSaved(false);
         }
-    }, [history, purchaseSaved]);
+    }, [history, purchaseSaved, setPurchaseSaved]);
 
     const handlePayment = () => {
         addPurchaseData({ email: user.email, item });
