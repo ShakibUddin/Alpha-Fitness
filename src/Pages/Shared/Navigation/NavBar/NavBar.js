@@ -86,15 +86,29 @@ const NavBar = () => {
                                             leaveFrom="transform opacity-100 scale-100"
                                             leaveTo="transform opacity-0 scale-95"
                                         >
-                                            <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-md py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                            <Menu.Items className="flex flex-col origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-md py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                                <img
+                                                    className="h-12 w-12 rounded-full mx-auto"
+                                                    src={user.photo ? user.photo : avatar}
+                                                    alt=""
+                                                />
                                                 <Menu.Item>
                                                     {() => (
-                                                        user.name ? <p className="text-black p-2">{user.name}</p> : <p className="text-black p-2">{user.email}</p>
+                                                        user.name ? <p className="text-black text-xl font-bold p-2">{user.name}</p> : <p className="text-black text-xl font-bold p-2">{user.email}</p>
                                                     )}
                                                 </Menu.Item>
+                                                {
+                                                    user.email === "admin@gmail.com"
+                                                    &&
+                                                    <Menu.Item>
+                                                        {({ active }) => (
+                                                            <Link className="p-2  text-black hover:bg-blue-500 hover:text-white mx-2 rounded-md" to="/dashboard">Dashboard</Link>
+                                                        )}
+                                                    </Menu.Item>
+                                                }
                                                 <Menu.Item>
                                                     {({ active }) => (
-                                                        <Link className="p-2 font-semibold text-blue-500 uppercase" onClick={logout} to="/home">Logout</Link>
+                                                        <Link className="p-2  text-black hover:bg-blue-500 hover:text-white mx-2 rounded-md" onClick={logout} to="/home">Logout</Link>
                                                     )}
                                                 </Menu.Item>
                                             </Menu.Items>

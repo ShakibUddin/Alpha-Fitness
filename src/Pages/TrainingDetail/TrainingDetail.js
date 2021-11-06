@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 import useData from '../../Hooks/useData';
 import Included from './Included/Included';
 const TrainingDetail = () => {
-    const { trainingId } = useParams();
+    const { itemId } = useParams();
     const { trainings } = useData();
     const [training, setTraining] = useState({});
     useEffect(() => {
-        setTraining(trainings.find(item => trainingId.toString() === item._id.toString()));
-    }, [trainings, trainingId]);
+        setTraining(trainings.find(item => itemId.toString() === item._id.toString()));
+    }, [trainings, itemId]);
 
     return (
         training ?
@@ -30,7 +30,7 @@ const TrainingDetail = () => {
 
                 </div>
                 <p className="font-extrabold text-5xl p-3  text-center text-blue-600">${training.price}</p>
-                <Link className="text-center w-3/5" to={`/checkout/${trainingId}`}>
+                <Link className="text-center w-3/5" to={`/payment/training/${itemId}`}>
                     <button className="w-full mx-auto my-3 font-extrabold text-4xl p-5 bg-blue-400 border- text-white uppercase">Join</button>
                 </Link>
 

@@ -3,16 +3,19 @@ import Swal from 'sweetalert2';
 const axios = require('axios').default;
 
 let useApi = () => {
+
     const [trainings, setTrainings] = useState([]);
     const [successes, setSuccesses] = useState([]);
-    const [membershipFees, setMembershipFees] = useState([]);
+    const [memberships, setMemberships] = useState([]);
     const [stories, setStories] = useState([]);
+    const [purchaseSaved, setPurchaseSaved] = useState(false);
 
     const trainingsUrl = 'http://localhost:5000/trainings';
     const successesUrl = 'http://localhost:5000/successes';
     const queriesUrl = 'http://localhost:5000/queries';
     const storiesUrl = 'http://localhost:5000/stories';
-    const membershipFeesUrl = 'http://localhost:5000/memberships';
+    const membershipsUrl = 'http://localhost:5000/memberships';
+    const purchasesUrl = 'http://localhost:5000/purchase';
 
 
     useEffect(() => {
@@ -32,9 +35,9 @@ let useApi = () => {
     }, []);
 
     useEffect(() => {
-        axios.get(membershipFeesUrl)
+        axios.get(membershipsUrl)
             .then(response => {
-                setMembershipFees(response.data);
+                setMemberships(response.data);
             }).catch(e => console.log(e));
     }, []);
 
@@ -49,6 +52,7 @@ let useApi = () => {
         axios.post(queriesUrl, { query, email })
             .then(response => {
                 if (response.data) {
+
                     Swal.fire({
                         icon: 'success',
                         title: 'Thank You.',
@@ -68,7 +72,35 @@ let useApi = () => {
                 )
             })
     }
-    return { trainings, setTrainings, successes, setSuccesses, membershipFees, setMembershipFees, stories, setStories, submitUserMessage };
+    const addPurchaseData = ({ email, item }) => {
+        axios.post(purchasesUrl, { email, itemName: item.name, itemPrice: item.price })
+            .then(response => {
+                if (response.data) {
+                    setPurchaseSaved(true);
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Thank You.',
+                        text: "Payment Completed Successfully",
+                        showCloseButton: false,
+                        showConfirmButton: true,
+                        confirmButtonText: "OK",
+                        confirmButtonColor: "#5c9169"
+                    })
+                }
+                else {
+                    setPurchaseSaved(false);
+                    throw new Error(response.statusText);
+                }
+
+            })
+            .catch(error => {
+                setPurchaseSaved(false);
+                Swal.showValidationMessage(
+                    `Oops! Something is wrong.`
+                )
+            })
+    }
+    return { trainings, setTrainings, successes, setSuccesses, memberships, setMemberships, stories, setStories, submitUserMessage, addPurchaseData, purchaseSaved, setPurchaseSaved };
 }
 
 export default useApi;
