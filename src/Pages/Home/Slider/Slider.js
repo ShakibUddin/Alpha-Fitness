@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Loading from 'react-loading-animation';
 import { useHistory } from 'react-router';
 import SwiperCore, { Autoplay, EffectCoverflow } from 'swiper';
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -30,6 +31,7 @@ const Slider = () => {
         }
     }, [height, width])
 
+    if (trainings.length === 0) return (<Loading></Loading>);
     return (
         <div className="w-full mx-auto my-20 lg:p-12 md:p-4 p-1 flex flex-wrap justify-center" >
             <Swiper

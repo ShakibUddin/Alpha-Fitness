@@ -1,9 +1,12 @@
 import React from 'react';
+import Loading from 'react-loading-animation';
 import useData from "../../../Hooks/useData";
 import FeeCard from './FeeCard/FeeCard';
 
 const MembershipFee = () => {
     const { memberships } = useData();
+
+    if (memberships.length === 0) return (<Loading></Loading>);
     return (
         <div className="w-full flex flex-col my-20 items-center">
             <p className="font-bold text-4xl uppercase p-3 text-blue-500 mb-24">GYM ACCESS</p>

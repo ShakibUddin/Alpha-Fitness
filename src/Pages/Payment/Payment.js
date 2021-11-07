@@ -14,7 +14,7 @@ const Payment = () => {
     const history = useHistory();
     const months = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
     const years = ["2021", "2022", "2023", "2024", "2025"];
-    const { trainings, memberships, addPurchaseData, purchaseSaved, setPurchaseSaved } = useData();
+    const { trainings, memberships, addPurchaseDataTable, purchaseSaved, setPurchaseSaved } = useData();
     const [email, setEmail] = useState(months[0]);
     const [item, setItem] = useState();
     const [selectedMonth, setSelectedMonth] = useState();
@@ -41,7 +41,7 @@ const Payment = () => {
     }, [history, purchaseSaved, setPurchaseSaved]);
 
     const handlePayment = () => {
-        addPurchaseData({ email: user.email, item });
+        addPurchaseDataTable({ email: user.email, item });
     }
 
     if (item === undefined) return (<Loading></Loading>);

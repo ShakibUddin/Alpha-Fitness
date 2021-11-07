@@ -5,13 +5,15 @@ const axios = require('axios').default;
 
 let useApi = () => {
 
-    const development = false;
+    const development = true;
     const serverUrl = development ? developmentUrl : productionUrl;
 
     const [trainings, setTrainings] = useState([]);
     const [successes, setSuccesses] = useState([]);
     const [memberships, setMemberships] = useState([]);
     const [stories, setStories] = useState([]);
+    const [purchases, setPurchases] = useState([]);
+    const [queries, setQueries] = useState([]);
     const [purchaseSaved, setPurchaseSaved] = useState(false);
 
     const trainingsUrl = `${serverUrl}/trainings`;
@@ -19,9 +21,16 @@ let useApi = () => {
     const queriesUrl = `${serverUrl}/queries`;
     const storiesUrl = `${serverUrl}/stories`;
     const membershipsUrl = `${serverUrl}/memberships`;
-    const purchasesUrl = `${serverUrl}/purchase`;
+    const getPurchasesUrl = `${serverUrl}/purchases`;
+    const purchaseUrl = `${serverUrl}/purchase`;
+    const deleteQueryUrl = `${serverUrl}/delete/query`;//add id
 
-
+    const fetchQueries = () => {
+        axios.get(queriesUrl)
+            .then(response => {
+                setQueries(response.data);
+            });
+    }
     useEffect(() => {
         axios.get(trainingsUrl)
             .then(response => {
@@ -52,8 +61,19 @@ let useApi = () => {
             });
     }, []);
 
+    useEffect(() => {
+        axios.get(getPurchasesUrl)
+            .then(response => {
+                setPurchases(response.data);
+            });
+    }, []);
+
+    useEffect(() => {
+        fetchQueries();
+    }, []);
+
     const submitUserMessage = ({ query, email }) => {
-        axios.post(queriesUrl, { query, email })
+        axios.post(queriesUrl, { query, email, date: new Date().toDateString() })
             .then(response => {
                 if (response.data) {
 
@@ -76,8 +96,8 @@ let useApi = () => {
                 )
             })
     }
-    const addPurchaseData = ({ email, item }) => {
-        axios.post(purchasesUrl, { email, itemName: item.name, itemPrice: item.price })
+    const addPurchaseDataTable = ({ email, item }) => {
+        axios.post(purchaseUrl, { email, itemName: item.name, itemPrice: item.price, date: new Date().toDateString() })
             .then(response => {
                 if (response.data) {
                     setPurchaseSaved(true);
@@ -104,7 +124,20 @@ let useApi = () => {
                 )
             })
     }
-    return { trainings, setTrainings, successes, setSuccesses, memberships, setMemberships, stories, setStories, submitUserMessage, addPurchaseData, purchaseSaved, setPurchaseSaved };
+
+    const handleDeleteQuery = (id) => {
+        axios.delete(`${deleteQueryUrl}/${id}`)
+            .then(function (response) {
+                if (response.data) {
+                    //fetch new data
+                    fetchQueries();
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+    return { trainings, setTrainings, successes, setSuccesses, memberships, setMemberships, stories, setStories, submitUserMessage, addPurchaseDataTable, purchaseSaved, setPurchaseSaved, queries, purchases, handleDeleteQuery };
 }
 
 export default useApi;

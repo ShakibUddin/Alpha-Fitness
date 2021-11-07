@@ -1,4 +1,5 @@
 import React from 'react';
+import Loading from 'react-loading-animation';
 import useData from '../../Hooks/useData';
 import successbg from '../../images/success.jpg';
 import SuccessCard from './SuccessCard/SuccessCard';
@@ -6,6 +7,7 @@ import SuccessCard from './SuccessCard/SuccessCard';
 const Success = () => {
     const { successes } = useData();
 
+    if (successes.length === 0) return (<Loading></Loading>);
     return (
         <div className="w-full mx-auto flex flex-col items-center  ">
             <div className="w-full h-96 object-cover bg-fixed bg-gray-600 bg-blend-multiply " style={{ backgroundImage: `url(${successbg})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }}>
