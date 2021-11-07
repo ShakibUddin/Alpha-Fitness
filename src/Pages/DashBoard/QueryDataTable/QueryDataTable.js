@@ -1,5 +1,5 @@
 import React from 'react';
-import Loading from 'react-loading-animation';
+import Loader from "react-loader-spinner";
 import { Table, Tbody, Td, Th, Thead, Tr } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import Swal from 'sweetalert2';
@@ -8,6 +8,24 @@ import useData from '../../../Hooks/useData';
 const QueryDataTable = () => {
     const { queries, handleQueryReply, handleDeleteQuery } = useData();
 
+    const handleReplyClick = (item) => {
+        Swal.fire({
+            title: 'Write a reply',
+            text: `${item.query}`,
+            input: 'text',
+            inputAttributes: {
+                autocapitalize: 'off'
+            },
+            showCancelButton: true,
+            confirmButtonText: 'Submit',
+            confirmButtonColor: "#3386FF",
+            showLoaderOnConfirm: true,
+            preConfirm: (reply) => {
+                return handleQueryReply({ item, reply });
+            },
+            allowOutsideClick: () => !Swal.isLoading()
+        });
+    }
     function openModal(query) {
         Swal.fire({
             title: 'Are you sure?',
@@ -30,9 +48,15 @@ const QueryDataTable = () => {
     }
 
     if (queries?.length === 0) return (<div className='w-full flex justify-center items-center h-96'>
-        <Loading>
 
-        </Loading>
+        <Loader
+            type="Bars"
+            color="#3386FF"
+            height={100}
+            width={100}
+            timeout={4000}
+        />
+
     </div>);
     return (
         <Table className="w-11/12 my-8 bg-white shadow-md mx-auto">
@@ -50,10 +74,9 @@ const QueryDataTable = () => {
                         <Td className="text-gray-600 text-xs text-center py-3">{item.query}</Td>
                         <Td className="text-gray-600 text-xs text-center py-3"><div className="flex justify-center">
                             <button className="w-2/4 mx-1 p-2 bg-green-500 text-white" onClick={() => {
-                                //passing clicked booking _id
-                                handleQueryReply(item._id);
-                            }
-                            }>Reply</button>
+                                handleReplyClick(item);
+                            }}
+                            >Reply</button>
                             <button className="w-2/4 mx-1 p-2 bg-red-500 text-white" onClick={() => {
                                 // passing the clickd booking object
                                 openModal(item);

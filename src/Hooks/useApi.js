@@ -24,6 +24,7 @@ let useApi = () => {
     const getPurchasesUrl = `${serverUrl}/purchases`;
     const purchaseUrl = `${serverUrl}/purchase`;
     const deleteQueryUrl = `${serverUrl}/delete/query`;//add id
+    const replyUrl = `${serverUrl}/reply`;
 
     const fetchQueries = () => {
         axios.get(queriesUrl)
@@ -137,7 +138,30 @@ let useApi = () => {
                 console.log(error);
             });
     }
-    return { trainings, setTrainings, successes, setSuccesses, memberships, setMemberships, stories, setStories, submitUserMessage, addPurchaseDataTable, purchaseSaved, setPurchaseSaved, queries, purchases, handleDeleteQuery };
+    const handleQueryReply = ({ item, reply }) => {
+        axios.post(replyUrl, { item, reply })
+            .then(response => {
+                if (response.data) {
+                    handleDeleteQuery(item._id);
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Reply message sent successfully',
+                        showCloseButton: true,
+                        showConfirmButton: false,
+                    })
+                }
+                else {
+                    throw new Error(response.statusText);
+                }
+
+            })
+            .catch(error => {
+                Swal.showValidationMessage(
+                    `Oops! Something is wrong.`
+                )
+            })
+    }
+    return { trainings, setTrainings, successes, setSuccesses, memberships, setMemberships, stories, setStories, submitUserMessage, addPurchaseDataTable, purchaseSaved, setPurchaseSaved, queries, purchases, handleDeleteQuery, handleQueryReply };
 }
 
 export default useApi;

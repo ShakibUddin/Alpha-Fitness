@@ -1,11 +1,21 @@
 import React from 'react';
-import Loading from 'react-loading-animation';
+import Loader from "react-loader-spinner";
 import { Redirect, Route } from 'react-router';
 import useAuth from '../../../../Hooks/useAuth';
 
 const PrivateRoute = ({ children, ...rest }) => {
     const { user, isLoading } = useAuth();
-    if (isLoading) return (<Loading></Loading>);
+    if (isLoading) return (<div className='w-full flex justify-center items-center h-96'>
+
+        <Loader
+            type="Bars"
+            color="#3386FF"
+            height={100}
+            width={100}
+            timeout={4000}
+        />
+
+    </div>);
     return (
         <Route
             {...rest}

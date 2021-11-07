@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Loading from 'react-loading-animation';
+import Loader from "react-loader-spinner";
 import { useHistory, useParams } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import useData from '../../Hooks/useData';
@@ -44,7 +44,17 @@ const Payment = () => {
         addPurchaseDataTable({ email: user.email, item });
     }
 
-    if (item === undefined) return (<Loading></Loading>);
+    if (item === undefined) return (<div className='w-full flex justify-center items-center h-96'>
+
+        <Loader
+            type="Bars"
+            color="#3386FF"
+            height={100}
+            width={100}
+            timeout={4000}
+        />
+
+    </div>);
     return (
         <div className="w-full">
             <div className="lg:w-3/4 md:w-4/5 w-full mx-auto lg:shadow-md md:shadow-md shadow-none my-24 p-6">

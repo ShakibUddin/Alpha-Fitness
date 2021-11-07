@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Loading from 'react-loading-animation';
+import Loader from "react-loader-spinner";
 import { useHistory } from 'react-router';
 import SwiperCore, { Autoplay, EffectCoverflow } from 'swiper';
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -31,7 +31,17 @@ const Slider = () => {
         }
     }, [height, width])
 
-    if (trainings.length === 0) return (<Loading></Loading>);
+    if (trainings.length === 0) return (<div className='w-full flex justify-center items-center h-96'>
+
+        <Loader
+            type="Bars"
+            color="#3386FF"
+            height={100}
+            width={100}
+            timeout={4000}
+        />
+
+    </div>);
     return (
         <div className="w-full mx-auto my-20 lg:p-12 md:p-4 p-1 flex flex-wrap justify-center" >
             <Swiper

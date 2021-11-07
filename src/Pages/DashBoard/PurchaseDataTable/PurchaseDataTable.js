@@ -1,5 +1,5 @@
 import React from 'react';
-import Loading from 'react-loading-animation';
+import Loader from 'react-loader-spinner';
 import { Table, Tbody, Td, Th, Thead, Tr } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import useData from '../../../Hooks/useData';
@@ -8,9 +8,15 @@ const PurchaseDataTable = (props) => {
     const { purchases } = useData();
 
     if (purchases?.length === 0) return (<div className='w-full flex justify-center items-center h-96'>
-        <Loading>
 
-        </Loading>
+        <Loader
+            type="Bars"
+            color="#3386FF"
+            height={100}
+            width={100}
+            timeout={4000}
+        />
+
     </div>);
     return (
         <Table className="w-11/12 my-8 bg-white shadow-md mx-auto">
