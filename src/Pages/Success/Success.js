@@ -20,7 +20,7 @@ const Success = () => {
     </div>);
     return (
         <div className="w-full mx-auto flex flex-col items-center  ">
-            <div className="w-full h-96 object-cover bg-fixed bg-gray-600 bg-blend-multiply " style={{ backgroundImage: `url(${successbg})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }}>
+            <div className="w-full h-96 object-cover bg-fixed bg-gray-500 bg-blend-multiply " style={{ backgroundImage: `url(${successbg})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }}>
                 <p className="font-bold text-3xl lg:text-7xl md:text-5xl text-center  py-3 text-blue-400 uppercase">More than just a 'before and after'</p>
             </div>
 

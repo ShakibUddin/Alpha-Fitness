@@ -8,7 +8,7 @@ const About = () => {
     const gymImages = [gym1, gym2, gym3, gym4];
     return (
         <div className="w-full mx-auto flex flex-col items-center ">
-            <div className="w-full h-96 object-cover bg-fixed bg-gray-600 bg-blend-multiply" style={{ backgroundImage: `url(${gym})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }}>
+            <div className="w-full h-96 object-cover bg-fixed bg-gray-500 bg-blend-multiply" style={{ backgroundImage: `url(${gym})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }}>
                 <p className="w-full font-bold text-3xl lg:text-7xl md:text-5xl text-center  py-3 text-blue-400 uppercase">DREAM  PLAN  EXECUTE</p>
             </div>
             <div className="w-full flex flex-wrap justify-evenly">

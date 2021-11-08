@@ -64,7 +64,7 @@ const Slider = () => {
             >
                 {
                     trainings.map(item => <SwiperSlide key={item._id}>
-                        <div style={{ width: `${parseInt(width / 3)}`, height: "450px", backgroundImage: `url(${item.image})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }} className="flex flex-col justify-center items-center text-center shadow-md  overflow-hidden  bg-blue-500 bg-blend-multiply cursor-pointer">
+                        <div style={{ width: `${parseInt(width / 3)}`, height: "450px", backgroundImage: `url(${item.image})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }} className="flex flex-col justify-center items-center text-center shadow-md  overflow-hidden  bg-gray-500 bg-blend-multiply cursor-pointer">
                             <p className="uppercase font-bold text-3xl py-3 text-white">{item.name}</p>
                         </div>
 

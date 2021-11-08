@@ -15,7 +15,7 @@ const TrainingDetail = () => {
     return (
         training ?
             <div className="w-full mx-auto flex flex-col items-center ">
-                <div className="w-full h-96 object-cover bg-fixed bg-gray-600 bg-blend-multiply " style={{ backgroundImage: `url(${training.image})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }}>
+                <div className="w-full h-96 object-cover bg-fixed bg-gray-500 bg-blend-multiply " style={{ backgroundImage: `url(${training.image})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }}>
                     <p className="font-bold lg:text-6xl md:text-4xl text-3xl p-3 text-start text-blue-400">{training.name}</p>
                     <p className="font-bold text-2xl p-3 text-start text-white ">{training.duration}</p>
                     <p className="font-bold text-xl p-3 text-white">{training.description}</p>

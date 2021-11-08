@@ -5,7 +5,7 @@ const axios = require('axios').default;
 
 let useApi = () => {
 
-    const development = true;
+    const development = false;
     const serverUrl = development ? developmentUrl : productionUrl;
 
     const [trainings, setTrainings] = useState([]);
@@ -73,8 +73,8 @@ let useApi = () => {
         fetchQueries();
     }, []);
 
-    const submitUserMessage = ({ query, email }) => {
-        axios.post(queriesUrl, { query, email, date: new Date().toDateString() })
+    const submitUserMessage = ({ name, email, query }) => {
+        axios.post(queriesUrl, { name, email, query, date: new Date().toDateString() })
             .then(response => {
                 if (response.data) {
 

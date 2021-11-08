@@ -5,6 +5,7 @@ import AuthProvider from '../../../Contexts/AuthProvider';
 import DataProvider from '../../../Contexts/DataProvider';
 import About from "../../About/About";
 import CheckOut from '../../CheckOut/CheckOut';
+import Consultation from '../../Consultation/Consultation';
 import DashBoard from '../../DashBoard/DashBoard';
 import Home from "../../Home/Home";
 import NotFound from "../../NotFound/NotFound";
@@ -31,6 +32,7 @@ const Navigation = () => {
                         <Route exact path="/home"><Home></Home></Route>
                         <Route exact path="/trainings"><Trainings></Trainings></Route>
                         <PrivateRoute exact path="/payment/:type/:itemId"><Payment></Payment></PrivateRoute>
+                        <PrivateRoute exact path="/consultation"><Consultation></Consultation></PrivateRoute>
                         <Route exact path="/dashboard"><DashBoard></DashBoard></Route>
                         <Route exact path="/checkout"><CheckOut></CheckOut></Route>
                         <Route exact path="/success"><Success></Success></Route>

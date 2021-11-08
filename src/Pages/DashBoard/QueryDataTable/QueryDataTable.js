@@ -62,18 +62,22 @@ const QueryDataTable = () => {
         <Table className="w-11/12 my-8 bg-white shadow-md mx-auto">
             <Thead>
                 <Tr className="shadow-md">
+                    <Th className="text-center text-blue-500 font-bold text-sm uppercase py-3">Name</Th>
                     <Th className="text-center text-blue-500 font-bold text-sm uppercase py-3">Email</Th>
                     <Th className="text-center text-blue-500 font-bold text-sm uppercase py-3">Query</Th>
+                    <Th className="text-center text-blue-500 font-bold text-sm uppercase py-3">Date</Th>
                     <Th className="text-center text-blue-500 font-bold text-sm uppercase py-3"></Th>
                 </Tr>
             </Thead>
             <Tbody>
                 {
                     queries.map(item => <Tr key={item._id}>
+                        <Td className="text-gray-600 text-xs text-center py-3">{item.name}</Td>
                         <Td className="text-gray-600 text-xs text-center py-3">{item.email}</Td>
                         <Td className="text-gray-600 text-xs text-center py-3">{item.query}</Td>
+                        <Td className="text-gray-600 text-xs text-center py-3">{item.date}</Td>
                         <Td className="text-gray-600 text-xs text-center py-3"><div className="flex justify-center">
-                            <button className="w-2/4 mx-1 p-2 bg-green-500 text-white" onClick={() => {
+                            <button className="w-2/4 mx-1 p-2 bg-blue-500 text-white" onClick={() => {
                                 handleReplyClick(item);
                             }}
                             >Reply</button>
