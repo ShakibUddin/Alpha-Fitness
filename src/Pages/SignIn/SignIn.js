@@ -2,7 +2,7 @@
 import { faGithub, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { yupResolver } from '@hookform/resolvers/yup';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useHistory, useLocation } from "react-router-dom";
 import * as Yup from 'yup';
@@ -14,7 +14,8 @@ const SignIn = () => {
         handleGithubSignIn,
         handleFirebaseEmailSignIn,
         alert,
-        error
+        signinError,
+        user
     } = useAuth();
     const location = useLocation();
     const history = useHistory();
@@ -34,14 +35,16 @@ const SignIn = () => {
     const { register, handleSubmit, formState: { errors } } = useForm(formOptions);
     const onSubmit = data => {
         if (data.password !== data.confirmPassword) errors.confirmPassword = true;
-        handleFirebaseEmailSignIn(data.email, data.password).then(() => {
-            redirectUserAfterSignIn();
-        });
+        handleFirebaseEmailSignIn(data.email, data.password);
     };
 
     const redirectUserAfterSignIn = () => {
         history.push(redirect_uri);
     }
+
+    useEffect(() => {
+        if (user.email) history.push(redirect_uri);
+    }, [history, redirect_uri, user.email]);
 
     return (
         <form className="lg:w-6/12 w-11/12 mx-auto p-5 m-5 flex flex-col justify-center items-center" onSubmit={handleSubmit(onSubmit)}>
@@ -55,7 +58,7 @@ const SignIn = () => {
             {errors.password && <p className="lg:w-2/4 w-3/4 text-start text-red-600 font-bold">{errors.password?.message}</p>}
 
             <input className="lg:w-2/4 w-3/4 mx-auto px-4 p-2 bg-blue-600 rounded-md text-white cursor-pointer" type="submit" name="LOGIN" />
-            {error && <p className="lg:w-2/4 w-3/4 text-start text-red-600 font-bold">{error}</p>}
+            {signinError && <p className="lg:w-2/4 w-3/4 text-start text-red-600 font-bold">{signinError}</p>}
 
             <p className="p-5">Don't have an account? <Link className="text-blue-800" to='/signup'>Register</Link></p>
 

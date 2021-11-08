@@ -12,11 +12,8 @@ const Contact = () => {
     const { user } = useAuth();
 
     const validationSchema = Yup.object().shape({
-        name: Yup.string()
-            .required('Name is required')
-            .max(30, 'Name must be maximum 30 characters')
-            .min(3, 'Name must be minimum 3 characters long'),
-        email: Yup.string().required('Email is required'),
+        name: Yup.string(),
+        email: Yup.string(),
         query: Yup.string()
             .required('Query is required')
             .max(30, 'Query must be maximum 30 characters')
@@ -39,10 +36,10 @@ const Contact = () => {
             <form className="lg:w-8/12 w-11/12 mx-auto p-5 m-3 flex flex-col justify-center items-center" onSubmit={handleSubmit(onSubmit)}>
                 <p className="text-4xl text-white py-10 font-extrabold text-center">We are here for you, Got any questions?</p>
 
-                <input className="lg:w-3/5 w-3/4 p-3 my-2 border-2 rounded-md" type="text" defaultValue={user.name} readOnly={user.name ? true : false} placeholder="Enter Name" {...register("name")} />
+                <input className="lg:w-3/5 w-3/4 p-3 my-2 border-2 rounded-md" type="text" defaultValue={user.name} readOnly={true} placeholder="Enter Name" {...register("name")} />
                 {errors.name && <p className="lg:w-3/5 w-3/4 text-start text-red-600 font-bold">{errors.name?.message}</p>}
 
-                <input className="lg:w-3/5 w-3/4 p-3 my-2 border-2 rounded-md" type="text" defaultValue={user.email} readOnly={user.email ? true : false} placeholder="Enter Email" {...register("email")} />
+                <input className="lg:w-3/5 w-3/4 p-3 my-2 border-2 rounded-md" type="text" defaultValue={user.email} readOnly={true} placeholder="Enter Email" {...register("email")} />
                 {errors.email && <p className="lg:w-3/5 w-3/4 text-start text-red-600 font-bold">{errors.email?.message}</p>}
 
                 <textarea className="lg:w-3/5 w-3/4 p-3 my-2 border-2 rounded-md" type="text" placeholder="Enter Query" {...register("query")} />

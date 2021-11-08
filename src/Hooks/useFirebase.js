@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeFirebase from '../Firebase/firebase.init';
 
@@ -8,7 +8,8 @@ const useFirebase = () => {
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
     const gitHubProvider = new GithubAuthProvider();
-    const [error, setError] = useState("");
+    const [signupError, setSignupError] = useState("");
+    const [signinError, setSigninError] = useState("");
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
 
@@ -23,11 +24,11 @@ const useFirebase = () => {
                     photo: photoURL,
                     emailVerified: emailVerified
                 };
-                setError("");
+                setSigninError("");
                 setUser(loggedInUser);
             })
             .catch(error => {
-                setError(error.code);
+                setSigninError(error.code);
             })
             .finally(() => setIsLoading(false));
     }
@@ -41,11 +42,11 @@ const useFirebase = () => {
                     photo: photoURL,
                     emailVerified: emailVerified
                 };
-                setError("");
+                setSigninError("");
                 setUser(loggedInUser);
             })
             .catch(error => {
-                setError(error.code);
+                setSigninError(error.code);
             })
             .finally(() => setIsLoading(false));
     }
@@ -56,26 +57,28 @@ const useFirebase = () => {
                 // Signed in 
                 const user = userCredential.user;
                 setUser(user);
-                setError("");
+                setSigninError("");
             })
             .catch((error) => {
-                setError(error.code);
+                setSigninError(error.code);
 
             }).finally(() => setIsLoading(false));
     }
 
-    const handleFirebaseEmailSignUp = (email, password) => {
+    const handleFirebaseEmailSignUp = (name, email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
-                sendEmailVerificationLink().then((result) => {
+                updateProfile(auth.currentUser, {
+                    displayName: name
+                }).then(() => {
                     setUser(user);
-                    setError("");
+                    setSignupError("");
                 });
             })
             .catch((error) => {
-                setError(error.code);
+                setSignupError(error.code);
             }).finally(() => setIsLoading(false));
     }
 
@@ -95,11 +98,8 @@ const useFirebase = () => {
             }
             setIsLoading(false);
         })
-    }, []);
+    }, [auth]);
 
-    const sendEmailVerificationLink = () => {
-        return sendEmailVerification(auth.currentUser);
-    }
     const logout = () => {
         signOut(auth)
             .then(() => {
@@ -113,7 +113,8 @@ const useFirebase = () => {
         handleGithubSignIn,
         handleFirebaseEmailSignIn,
         handleFirebaseEmailSignUp,
-        error,
+        signupError,
+        signinError,
         user,
         isLoading,
         logout

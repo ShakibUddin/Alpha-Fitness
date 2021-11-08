@@ -14,6 +14,7 @@ let useApi = () => {
     const [stories, setStories] = useState([]);
     const [purchases, setPurchases] = useState([]);
     const [queries, setQueries] = useState([]);
+    const [coaches, setCoaches] = useState([]);
     const [purchaseSaved, setPurchaseSaved] = useState(false);
 
     const trainingsUrl = `${serverUrl}/trainings`;
@@ -25,13 +26,16 @@ let useApi = () => {
     const purchaseUrl = `${serverUrl}/purchase`;
     const deleteQueryUrl = `${serverUrl}/delete/query`;//add id
     const replyUrl = `${serverUrl}/reply`;
+    const coachesUrl = `${serverUrl}/coaches`;
+    const appointmentUrl = `${serverUrl}/appointment`;
 
     const fetchQueries = () => {
         axios.get(queriesUrl)
             .then(response => {
                 setQueries(response.data);
-            });
+            }).catch(e => console.log(e));;
     }
+
     useEffect(() => {
         axios.get(trainingsUrl)
             .then(response => {
@@ -59,7 +63,7 @@ let useApi = () => {
         axios.get(storiesUrl)
             .then(response => {
                 setStories(response.data);
-            });
+            }).catch(e => console.log(e));;
     }, []);
 
     useEffect(() => {
@@ -67,6 +71,12 @@ let useApi = () => {
             .then(response => {
                 setPurchases(response.data);
             });
+    }, []);
+    useEffect(() => {
+        axios.get(coachesUrl)
+            .then(response => {
+                setCoaches(response.data);
+            }).catch(e => console.log(e));
     }, []);
 
     useEffect(() => {
@@ -90,6 +100,28 @@ let useApi = () => {
                     throw new Error(response.statusText);
                 }
 
+            })
+            .catch(error => {
+                Swal.showValidationMessage(
+                    `Oops! Something is wrong.`
+                )
+            })
+    }
+    const submitAppointmentBookingData = ({ date, time, coach, name, email }) => {
+        axios.post(appointmentUrl, { date, time, coach, name, email })
+            .then(response => {
+                if (response.data) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Thank You.',
+                        text: "We will contact you in 24 hours",
+                        showCloseButton: true,
+                        showConfirmButton: false,
+                    })
+                }
+                else {
+                    throw new Error(response.statusText);
+                }
             })
             .catch(error => {
                 Swal.showValidationMessage(
@@ -161,7 +193,7 @@ let useApi = () => {
                 )
             })
     }
-    return { trainings, setTrainings, successes, setSuccesses, memberships, setMemberships, stories, setStories, submitUserMessage, addPurchaseDataTable, purchaseSaved, setPurchaseSaved, queries, purchases, handleDeleteQuery, handleQueryReply };
+    return { trainings, setTrainings, successes, setSuccesses, memberships, setMemberships, stories, setStories, submitUserMessage, addPurchaseDataTable, purchaseSaved, setPurchaseSaved, queries, purchases, handleDeleteQuery, handleQueryReply, coaches, submitAppointmentBookingData };
 }
 
 export default useApi;

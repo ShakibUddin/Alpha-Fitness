@@ -94,7 +94,7 @@ const NavBar = () => {
                                                 />
                                                 <Menu.Item>
                                                     {() => (
-                                                        user.name ? <p className="text-black text-xl font-bold p-2">{user.name}</p> : <p className="text-black text-xl font-bold p-2">{user.email}</p>
+                                                        <p className="text-black text-xl font-bold p-2">{user.name}</p>
                                                     )}
                                                 </Menu.Item>
                                                 {
