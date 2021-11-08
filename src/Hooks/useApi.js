@@ -5,7 +5,7 @@ const axios = require('axios').default;
 
 let useApi = () => {
 
-    const development = false;
+    const development = true;
     const serverUrl = development ? developmentUrl : productionUrl;
 
     const [trainings, setTrainings] = useState([]);
@@ -15,6 +15,7 @@ let useApi = () => {
     const [purchases, setPurchases] = useState([]);
     const [queries, setQueries] = useState([]);
     const [coaches, setCoaches] = useState([]);
+    const [appointments, setAppointments] = useState([]);
     const [purchaseSaved, setPurchaseSaved] = useState(false);
 
     const trainingsUrl = `${serverUrl}/trainings`;
@@ -27,12 +28,22 @@ let useApi = () => {
     const deleteQueryUrl = `${serverUrl}/delete/query`;//add id
     const replyUrl = `${serverUrl}/reply`;
     const coachesUrl = `${serverUrl}/coaches`;
-    const appointmentUrl = `${serverUrl}/appointment`;
+    const appointmentsUrl = `${serverUrl}/appointments`;
+    const bookAppointmentUrl = `${serverUrl}/appointment/book`;
+    const approveAppointmentUrl = `${serverUrl}/appointment/approve`;
+    const deleteAppointmentUrl = `${serverUrl}/delete/appointment`;//add id
 
     const fetchQueries = () => {
         axios.get(queriesUrl)
             .then(response => {
                 setQueries(response.data);
+            }).catch(e => console.log(e));;
+    }
+
+    const fetchAppointments = () => {
+        axios.get(appointmentsUrl)
+            .then(response => {
+                setAppointments(response.data);
             }).catch(e => console.log(e));;
     }
 
@@ -83,6 +94,10 @@ let useApi = () => {
         fetchQueries();
     }, []);
 
+    useEffect(() => {
+        fetchAppointments();
+    }, []);
+
     const submitUserMessage = ({ name, email, query }) => {
         axios.post(queriesUrl, { name, email, query, date: new Date().toDateString() })
             .then(response => {
@@ -100,28 +115,6 @@ let useApi = () => {
                     throw new Error(response.statusText);
                 }
 
-            })
-            .catch(error => {
-                Swal.showValidationMessage(
-                    `Oops! Something is wrong.`
-                )
-            })
-    }
-    const submitAppointmentBookingData = ({ date, time, coach, name, email }) => {
-        axios.post(appointmentUrl, { date, time, coach, name, email })
-            .then(response => {
-                if (response.data) {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Thank You.',
-                        text: "We will contact you in 24 hours",
-                        showCloseButton: true,
-                        showConfirmButton: false,
-                    })
-                }
-                else {
-                    throw new Error(response.statusText);
-                }
             })
             .catch(error => {
                 Swal.showValidationMessage(
@@ -193,7 +186,64 @@ let useApi = () => {
                 )
             })
     }
-    return { trainings, setTrainings, successes, setSuccesses, memberships, setMemberships, stories, setStories, submitUserMessage, addPurchaseDataTable, purchaseSaved, setPurchaseSaved, queries, purchases, handleDeleteQuery, handleQueryReply, coaches, submitAppointmentBookingData };
+    const submitAppointmentBookingData = ({ date, time, coachId, coachName, userName, userEmail, message }) => {
+        axios.post(bookAppointmentUrl, { date, time, coachId, coachName, userName, userEmail, message })
+            .then(response => {
+                if (response.data) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Thank You.',
+                        text: "We will contact you in 24 hours",
+                        showCloseButton: true,
+                        showConfirmButton: false,
+                    })
+                }
+                else {
+                    throw new Error(response.statusText);
+                }
+            })
+            .catch(error => {
+                Swal.showValidationMessage(
+                    `Oops! Something is wrong.`
+                )
+            })
+    }
+    const handleDeleteAppointment = (id) => {
+        axios.delete(`${deleteAppointmentUrl}/${id}`)
+            .then(function (response) {
+                if (response.data) {
+                    //fetch new data
+                    fetchAppointments();
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+    const approveAppointment = ({ _id, date, time, coachId, coachName, userName, userEmail, message }) => {
+        axios.post(approveAppointmentUrl, { date, time, coachId, coachName, userName, userEmail, message })
+            .then(response => {
+                if (response.data) {
+                    handleDeleteAppointment(_id);
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Appointment approved successfully',
+                        showCloseButton: true,
+                        showConfirmButton: false,
+                    })
+                }
+                else {
+                    throw new Error(response.statusText);
+                }
+
+            })
+            .catch(error => {
+                Swal.showValidationMessage(
+                    `Oops! Something is wrong.`
+                )
+            })
+    }
+    return { trainings, setTrainings, successes, setSuccesses, memberships, setMemberships, stories, setStories, submitUserMessage, addPurchaseDataTable, purchaseSaved, setPurchaseSaved, queries, purchases, handleDeleteQuery, handleQueryReply, coaches, submitAppointmentBookingData, approveAppointment, handleDeleteAppointment, appointments };
 }
 
 export default useApi;

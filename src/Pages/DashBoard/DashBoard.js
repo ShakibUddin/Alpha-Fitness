@@ -1,7 +1,8 @@
-import { faCreditCard, faFile } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarCheck, faCreditCard, faFile } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
+import AppointmentDataTable from './AppointmentDataTable/AppointmentDataTable';
 import PurchaseDataTable from './PurchaseDataTable/PurchaseDataTable';
 import QueryDataTable from './QueryDataTable/QueryDataTable';
 
@@ -16,6 +17,9 @@ const DashBoard = () => {
                 <Tab>
                     <div className="select-none text-md font-bold p-3 cursor-pointer text-center flex-grow"><FontAwesomeIcon className="mr-2" icon={faFile} />Queries</div>
                 </Tab>
+                <Tab>
+                    <div className="select-none text-md font-bold p-3 cursor-pointer text-center flex-grow"><FontAwesomeIcon className="mr-2" icon={faCalendarCheck} />Appointments</div>
+                </Tab>
             </TabList>
 
             <TabPanel>
@@ -23,6 +27,9 @@ const DashBoard = () => {
             </TabPanel>
             <TabPanel>
                 <QueryDataTable></QueryDataTable>
+            </TabPanel>
+            <TabPanel>
+                <AppointmentDataTable></AppointmentDataTable>
             </TabPanel>
         </Tabs>
     );

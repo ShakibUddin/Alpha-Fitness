@@ -4,6 +4,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import Loader from 'react-loader-spinner';
+import { useHistory } from 'react-router';
 import useAuth from '../../Hooks/useAuth';
 import useData from '../../Hooks/useData';
 
@@ -11,6 +12,7 @@ const Consultation = () => {
     const { coaches, submitAppointmentBookingData } = useData();
     const [selectedDate, onChange] = useState(new Date());
     const { user } = useAuth();
+    const history = useHistory();
     const timeSlots = ["9 AM", "10 AM", "11 AM", "12 PM", "3 PM", "4 PM", "5 PM", "6 PM", "7 PM", "8 PM", "9 PM"];
 
     const [selectedCoach, setSelectedCoach] = useState();
@@ -41,7 +43,6 @@ const Consultation = () => {
 
     </div>);
     return (
-
         <div className="w-full flex flex-col p-4 items-center">
             <div className="lg:w-4/5 md:w-4/5 w-full bg-white shadow-md rounded-md p-4 flex lg:flex-row md:flex-row flex-col">
                 <Calendar
@@ -49,7 +50,7 @@ const Consultation = () => {
                     onChange={onChange}
                     value={selectedDate}
                 />
-                <div className="grid lg:grid-cols-6 md:grid-cols-3 grid-cols-3 grid-flow-row auto-rows-min lg:ml-2 md:ml-2">
+                <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-3 grid-flow-row auto-rows-min lg:ml-2 md:ml-2">
                     {
                         timeSlots.map((slot, index) => <p key={index} className={selectedSlot !== slot ? `rounded-md px-4 py-2 text-center bg-blue-200 text-blue-700 m-1 cursor-pointer hover:bg-blue-500 hover:text-white` : `rounded-md px-4 py-2 text-center m-1 cursor-pointer bg-blue-500 text-white`} value={selectedSlot}
                             onClick={(e) => { handleSlotSelection(e) }}>{slot}</p>)
@@ -130,7 +131,10 @@ const Consultation = () => {
                 <textarea className="w-full p-3 my-2 border-2 rounded-md" type="text" placeholder="Enter message" value={message} name="message" onChange={(e) => {
                     setMessage(e.target.value);
                 }} />
-                <button className="lg:w-1/4 w-2/4 mx-auto px-4 p-2 bg-blue-600 rounded-md text-white text-center cursor-pointer mt-8" onClick={() => { submitAppointmentBookingData({ date: selectedDate.toString().split(" ").slice(1, 4).join(" "), time: selectedSlot, coach: selectedCoach._id, name: user.name, email: user.email, message: message }); }}>SUBMIT</button>
+                <button className="lg:w-1/4 w-2/4 mx-auto px-4 p-2 bg-blue-600 rounded-md text-white text-center cursor-pointer mt-8" onClick={() => {
+                    submitAppointmentBookingData({ date: selectedDate.toString().split(" ").slice(1, 4).join(" "), time: selectedSlot, coachId: selectedCoach._id, coachName: selectedCoach.name, userName: user.name, userEmail: user.email, message: message });
+                    history.push('/home');
+                }}>SUBMIT</button>
             </div>
 
         </div>
