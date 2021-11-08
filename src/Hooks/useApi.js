@@ -5,7 +5,7 @@ const axios = require('axios').default;
 
 let useApi = () => {
 
-    const development = true;
+    const development = false;
     const serverUrl = development ? developmentUrl : productionUrl;
 
     const [trainings, setTrainings] = useState([]);
@@ -37,14 +37,20 @@ let useApi = () => {
         axios.get(queriesUrl)
             .then(response => {
                 setQueries(response.data);
-            }).catch(e => console.log(e));;
+            }).catch(e => console.log(e));
     }
 
     const fetchAppointments = () => {
         axios.get(appointmentsUrl)
             .then(response => {
                 setAppointments(response.data);
-            }).catch(e => console.log(e));;
+            }).catch(e => console.log(e));
+    }
+    const fetchPurchases = () => {
+        axios.get(getPurchasesUrl)
+            .then(response => {
+                setPurchases(response.data);
+            });
     }
 
     useEffect(() => {
@@ -78,16 +84,14 @@ let useApi = () => {
     }, []);
 
     useEffect(() => {
-        axios.get(getPurchasesUrl)
-            .then(response => {
-                setPurchases(response.data);
-            });
-    }, []);
-    useEffect(() => {
         axios.get(coachesUrl)
             .then(response => {
                 setCoaches(response.data);
             }).catch(e => console.log(e));
+    }, []);
+
+    useEffect(() => {
+        fetchPurchases();
     }, []);
 
     useEffect(() => {
@@ -122,8 +126,8 @@ let useApi = () => {
                 )
             })
     }
-    const addPurchaseDataTable = ({ email, item }) => {
-        axios.post(purchaseUrl, { email, itemName: item.name, itemPrice: item.price, date: new Date().toDateString() })
+    const savePurchaseData = ({ name, email, item }) => {
+        axios.post(purchaseUrl, { name: name, email, itemName: item.name, itemPrice: item.price, date: new Date().toDateString() })
             .then(response => {
                 if (response.data) {
                     setPurchaseSaved(true);
@@ -243,7 +247,7 @@ let useApi = () => {
                 )
             })
     }
-    return { trainings, setTrainings, successes, setSuccesses, memberships, setMemberships, stories, setStories, submitUserMessage, addPurchaseDataTable, purchaseSaved, setPurchaseSaved, queries, purchases, handleDeleteQuery, handleQueryReply, coaches, submitAppointmentBookingData, approveAppointment, handleDeleteAppointment, appointments };
+    return { trainings, setTrainings, successes, setSuccesses, memberships, setMemberships, stories, setStories, submitUserMessage, savePurchaseData, purchaseSaved, setPurchaseSaved, queries, purchases, handleDeleteQuery, handleQueryReply, coaches, submitAppointmentBookingData, approveAppointment, handleDeleteAppointment, appointments, fetchPurchases, fetchQueries, fetchAppointments };
 }
 
 export default useApi;

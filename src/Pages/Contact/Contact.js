@@ -23,9 +23,14 @@ const Contact = () => {
     }).required();
 
     const formOptions = { resolver: yupResolver(validationSchema) };
-    const { register, handleSubmit, reset, formState: { errors } } = useForm(formOptions);
+    const { register, reset, handleSubmit, formState: { errors } } = useForm(formOptions);
     const onSubmit = data => {
-        submitUserMessage({ name: data.name, email: data.email, query: data.query });
+        if (user.email) {
+            submitUserMessage({ name: user.name ? user.name : user.displayName, email: user.email, query: data.query });
+        }
+        else {
+            submitUserMessage({ name: data.name, email: data.email, query: data.query });
+        }
         reset();
     };
 
@@ -36,7 +41,7 @@ const Contact = () => {
             <form className="lg:w-8/12 w-11/12 mx-auto p-5 m-3 flex flex-col justify-center items-center" onSubmit={handleSubmit(onSubmit)}>
                 <p className="text-4xl text-white py-10 font-extrabold text-center">We are here for you, Got any questions?</p>
 
-                <input className="lg:w-3/5 w-3/4 p-3 my-2 border-2 rounded-md" type="text" defaultValue={user.name} readOnly={true} placeholder="Enter Name" {...register("name")} />
+                <input className="lg:w-3/5 w-3/4 p-3 my-2 border-2 rounded-md" type="text" defaultValue={user.name ? user.name : user.displayName} readOnly={true} placeholder="Enter Name" {...register("name")} />
                 {errors.name && <p className="lg:w-3/5 w-3/4 text-start text-red-600 font-bold">{errors.name?.message}</p>}
 
                 <input className="lg:w-3/5 w-3/4 p-3 my-2 border-2 rounded-md" type="text" defaultValue={user.email} readOnly={true} placeholder="Enter Email" {...register("email")} />

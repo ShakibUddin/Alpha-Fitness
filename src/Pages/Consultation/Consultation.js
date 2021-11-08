@@ -27,7 +27,6 @@ const Consultation = () => {
     }
 
     const handleSlotSelection = (e) => {
-        console.log(e.target.innerText)
         setSelectedSlot(e.target.innerText);
     }
 
@@ -59,7 +58,7 @@ const Consultation = () => {
             </div>
             <div className="flex flex-col lg:w-4/5 md:w-4/5 w-full bg-white shadow-md rounded-md p-4 mt-8">
                 <p>Name</p>
-                <input readOnly={user.name ? true : false} value={user.name} className="w-full p-3 my-2 border-2 rounded-md" type="text" placeholder="Enter name" name="name" />
+                <input readOnly={user.name ? user.name : user.displayName ? true : false} value={user.name ? user.name : user.displayName} className="w-full p-3 my-2 border-2 rounded-md" type="text" placeholder="Enter name" name="name" />
                 <p className="mt-4">Email</p>
                 <input readOnly={true} value={user.email} className="w-full p-3 my-2 border-2 rounded-md" type="text" placeholder="Enter email" name="email" />
                 <p className="mt-4">Preferred Coach</p>
@@ -132,7 +131,7 @@ const Consultation = () => {
                     setMessage(e.target.value);
                 }} />
                 <button className="lg:w-1/4 w-2/4 mx-auto px-4 p-2 bg-blue-600 rounded-md text-white text-center cursor-pointer mt-8" onClick={() => {
-                    submitAppointmentBookingData({ date: selectedDate.toString().split(" ").slice(1, 4).join(" "), time: selectedSlot, coachId: selectedCoach._id, coachName: selectedCoach.name, userName: user.name, userEmail: user.email, message: message });
+                    submitAppointmentBookingData({ date: selectedDate.toString().split(" ").slice(1, 4).join(" "), time: selectedSlot, coachId: selectedCoach._id, coachName: selectedCoach.name, userName: user.name ? user.name : user.displayName, userEmail: user.email, message: message });
                     history.push('/home');
                 }}>SUBMIT</button>
             </div>

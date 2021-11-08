@@ -83,7 +83,7 @@ const SignIn = () => {
                 }}>Admin</button>
                 <button className="px-4 p-2 text-xl border-2 text-white bg-yellow-600" onClick={(e) => {
                     e.preventDefault();
-                    handleFirebaseEmailSignIn("user@gmail.com", "user123").then(() => {
+                    handleFirebaseEmailSignIn("user@gmail.com", "useR1234").then(() => {
                         redirectUserAfterSignIn();
                     });
                 }}>User</button>

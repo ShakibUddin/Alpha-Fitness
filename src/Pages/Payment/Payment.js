@@ -14,7 +14,7 @@ const Payment = () => {
     const history = useHistory();
     const months = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
     const years = ["2021", "2022", "2023", "2024", "2025"];
-    const { trainings, memberships, addPurchaseDataTable, purchaseSaved, setPurchaseSaved } = useData();
+    const { trainings, memberships, savePurchaseData, purchaseSaved, setPurchaseSaved } = useData();
     const [email, setEmail] = useState(months[0]);
     const [item, setItem] = useState();
     const [selectedMonth, setSelectedMonth] = useState();
@@ -41,7 +41,7 @@ const Payment = () => {
     }, [history, purchaseSaved, setPurchaseSaved]);
 
     const handlePayment = () => {
-        addPurchaseDataTable({ email: user.email, item });
+        savePurchaseData({ name: user.name ? user.name : user.displayName, email: user.email, item });
     }
 
     if (item === undefined) return (<div className='w-full flex justify-center items-center h-96'>
@@ -57,7 +57,7 @@ const Payment = () => {
     </div>);
     return (
         <div className="w-full">
-            <div className="lg:w-3/4 md:w-4/5 w-full mx-auto lg:shadow-md md:shadow-md shadow-none my-24 p-6">
+            <div className="lg:w-3/4 md:w-4/5 w-full mx-auto lg:shadow-md md:shadow-md shadow-none my-24 p-6 bg-white">
                 <p className="text-3xl font-bold mb-4 text-center text-black">{item.name} - ${item.price}</p>
                 <div className="flex flex-wrap justify-between">
                     <p className="text-2xl font-bold text-black">Payment Details</p>

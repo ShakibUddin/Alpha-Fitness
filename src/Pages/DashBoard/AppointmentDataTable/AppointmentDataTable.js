@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Loader from "react-loader-spinner";
 import { Table, Tbody, Td, Th, Thead, Tr } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
@@ -6,7 +6,11 @@ import Swal from 'sweetalert2';
 import useData from '../../../Hooks/useData';
 
 const AppointmentDataTable = () => {
-    const { appointments, approveAppointment, handleDeleteAppointment } = useData();
+    const { appointments, approveAppointment, handleDeleteAppointment, fetchAppointments } = useData();
+
+    useEffect(() => {
+        fetchAppointments();
+    }, []);
 
     const handleApproveClick = (appointment) => {
         Swal.fire({
@@ -58,9 +62,9 @@ const AppointmentDataTable = () => {
 
     </div>);
     return (
-        <Table className="w-11/12 my-8 bg-white shadow-md mx-auto">
+        <Table className="w-11/12 bg-white shadow-md mx-auto mb-96">
             <Thead>
-                <Tr className="shadow-md">
+                <Tr >
                     <Th className="text-center text-blue-500 font-bold text-sm uppercase py-3">Name</Th>
                     <Th className="text-center text-blue-500 font-bold text-sm uppercase py-3">Email</Th>
                     <Th className="text-center text-blue-500 font-bold text-sm uppercase py-3">Coach</Th>
