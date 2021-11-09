@@ -65,7 +65,7 @@ const SignUp = () => {
 
             <input className="lg:w-2/4 w-3/4 mx-auto px-4 p-2 bg-blue-600 rounded-md text-white cursor-pointer" type="submit" name="SIGNUP" />
             {signupError && <p className="lg:w-2/4 w-3/4 text-start text-red-600 font-bold">{signupError}</p>}
-            <p className="py-5">Already have an account? <Link className="text-blue-800" to='/signin'>Login</Link></p>
+            <p className="py-5 text-center">Already have an account? <Link className="text-blue-800" to='/signin'>Login</Link></p>
         </form>
     );
 };

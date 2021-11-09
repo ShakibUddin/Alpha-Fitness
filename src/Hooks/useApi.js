@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
 import Swal from 'sweetalert2';
-import { developmentUrl, productionUrl } from "../Constants/Constants";
+import { serverUrl } from "../Constants/Constants";
 const axios = require('axios').default;
 
 let useApi = () => {
-
-    const development = false;
-    const serverUrl = development ? developmentUrl : productionUrl;
 
     const [trainings, setTrainings] = useState([]);
     const [successes, setSuccesses] = useState([]);

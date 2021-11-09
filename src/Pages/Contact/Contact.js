@@ -41,16 +41,16 @@ const Contact = () => {
             <form className="lg:w-8/12 w-11/12 mx-auto p-5 m-3 flex flex-col justify-center items-center" onSubmit={handleSubmit(onSubmit)}>
                 <p className="text-4xl text-white py-10 font-extrabold text-center">We are here for you, Got any questions?</p>
 
-                <input className="lg:w-3/5 w-3/4 p-3 my-2 border-2 rounded-md" type="text" defaultValue={user.name ? user.name : user.displayName} readOnly={true} placeholder="Enter Name" {...register("name")} />
-                {errors.name && <p className="lg:w-3/5 w-3/4 text-start text-red-600 font-bold">{errors.name?.message}</p>}
+                <input className="lg:w-3/5 w-10/12 p-3 my-2 border-2 rounded-md" type="text" defaultValue={user.name ? user.name : user.displayName} readOnly={user.email ? true : false} placeholder="Enter Name" {...register("name")} />
+                {errors.name && <p className="lg:w-3/5 w-10/12 text-start text-red-600 font-bold">{errors.name?.message}</p>}
 
-                <input className="lg:w-3/5 w-3/4 p-3 my-2 border-2 rounded-md" type="text" defaultValue={user.email} readOnly={true} placeholder="Enter Email" {...register("email")} />
-                {errors.email && <p className="lg:w-3/5 w-3/4 text-start text-red-600 font-bold">{errors.email?.message}</p>}
+                <input className="lg:w-3/5 w-10/12 p-3 my-2 border-2 rounded-md" type="text" defaultValue={user.email} readOnly={user.email ? true : false} placeholder="Enter Email" {...register("email")} />
+                {errors.email && <p className="lg:w-3/5 w-10/12 text-start text-red-600 font-bold">{errors.email?.message}</p>}
 
-                <textarea className="lg:w-3/5 w-3/4 p-3 my-2 border-2 rounded-md" type="text" placeholder="Enter Query" {...register("query")} />
-                {errors.query && <p className="lg:w-3/5 w-3/4 text-start text-red-600 font-bold">{errors.query?.message}</p>}
+                <textarea className="lg:w-3/5 w-10/12 p-3 my-2 border-2 rounded-md" type="text" placeholder="Enter Query" {...register("query")} />
+                {errors.query && <p className="lg:w-3/5 w-10/12 text-start text-red-600 font-bold">{errors.query?.message}</p>}
 
-                <input className="lg:w-3/5 w-3/4 mx-auto px-4 p-2 bg-blue-600 rounded-md text-white cursor-pointer" type="submit" name="SUBMIT" />
+                <input className="lg:w-3/5 w-10/12 mx-auto px-4 p-2 bg-blue-600 rounded-md text-white cursor-pointer" type="submit" name="SUBMIT" />
             </form>
         </div>
 

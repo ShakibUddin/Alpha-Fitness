@@ -60,7 +60,7 @@ const SignIn = () => {
             <input className="lg:w-2/4 w-3/4 mx-auto px-4 p-2 bg-blue-600 rounded-md text-white cursor-pointer" type="submit" name="LOGIN" />
             {signinError && <p className="lg:w-2/4 w-3/4 text-start text-red-600 font-bold">{signinError}</p>}
 
-            <p className="p-5">Don't have an account? <Link className="text-blue-800" to='/signup'>Register</Link></p>
+            <p className="p-5 text-center">Don't have an account? <Link className="text-blue-800" to='/signup'>Register</Link></p>
 
             <p className="p-3">or</p>
 

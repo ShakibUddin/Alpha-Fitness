@@ -1,5 +1,7 @@
+import axios from "axios";
 import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { useEffect, useState } from "react";
+import { serverUrl } from "../Constants/Constants";
 import initializeFirebase from '../Firebase/firebase.init';
 
 initializeFirebase();
@@ -12,7 +14,11 @@ const useFirebase = () => {
     const [signinError, setSigninError] = useState("");
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+    const upsertUserUrl = `${serverUrl}/user`;
 
+    const saveUserInDB = (user) => {
+        axios.put(upsertUserUrl, { ...user });
+    }
 
     const handleGoogleSignIn = () => {
         return signInWithPopup(auth, googleProvider)
@@ -25,6 +31,7 @@ const useFirebase = () => {
                     emailVerified: emailVerified
                 };
                 setSigninError("");
+                saveUserInDB(loggedInUser);
                 setUser(loggedInUser);
             })
             .catch(error => {
@@ -43,6 +50,7 @@ const useFirebase = () => {
                     emailVerified: emailVerified
                 };
                 setSigninError("");
+                saveUserInDB(loggedInUser);
                 setUser(loggedInUser);
             })
             .catch(error => {
@@ -73,7 +81,14 @@ const useFirebase = () => {
                 updateProfile(auth.currentUser, {
                     displayName: name
                 }).then(() => {
-                    setUser(user);
+                    const loggedInUser = {
+                        name: user.displayName,
+                        email: user.email,
+                        photo: user.photoURL,
+                        emailVerified: user.emailVerified
+                    };
+                    setUser(loggedInUser);
+                    saveUserInDB(loggedInUser);
                     setSignupError("");
                 });
             })
