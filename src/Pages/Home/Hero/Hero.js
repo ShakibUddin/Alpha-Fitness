@@ -1,5 +1,5 @@
 import React from 'react';
-import mainbg from "../../../images/mainbg.jpg";
+import mainbg from '../../../images/mainbg.jpg';
 
 const Hero = (props) => {
     const handleOnGetStartedClick = () => {
@@ -11,14 +11,13 @@ const Hero = (props) => {
         }
     }
     return (
-        <div className="w-full h-screen object-cover bg-fixed bg-gray-500 bg-blend-multiply" style={{ backgroundImage: `url(${mainbg})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }}>
-            <div className="w-full h-96 flex flex-col justify-center items-center ">
-                <p className="lg:text-8xl md:text-6xl text-3xl font-extrabold text-white uppercase">No <span className="text-blue-400">Pain</span> No <span className="text-blue-400">Gain</span></p>
-                <p className="lg:text-4xl md:text-3xl text-xl font-extrabold text-white text-center">Join Today and Become <span className="text-blue-400">The Alpha</span></p>
+        <div className="w-full h-screen object-cover bg-fixed bg-gray-500 bg-blend-multiply lg:p-16 md:p-8 p-4" style={{ backgroundImage: `url(${mainbg})`, backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center" }}>
+            <div className="w-full  h-full flex flex-col justify-center items-center">
+                <p className="lg:text-6xl md:text-5xl text-3xl font-extrabold text-white uppercase my-8">No Pain No Gain</p>
+                <p className="lg:text-xl md:text-lg text-base text-white text-center">Get in touch with experts. Let us guide you to your destination. Join Today and Become The Alpha</p>
 
-                <button className="p-5 my-3 mx-auto bg-blue-600 text-white uppercase font-bold transform -skew-x-12 lg:text-2xl text-xl" onClick={handleOnGetStartedClick}>Get Started
+                <button className="p-4 my-3 bg-gradient-to-r from-blue-600 to-blue-500 text-white text-xl rounded-md shadow-md" onClick={handleOnGetStartedClick}>Get Started
                 </button>
-
             </div>
         </div>
     );

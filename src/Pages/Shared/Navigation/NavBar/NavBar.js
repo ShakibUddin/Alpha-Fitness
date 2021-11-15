@@ -4,7 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../../Hooks/useAuth';
 import avatar from '../../../../images/avatar.png';
-import logo from '../../../../images/logo.jpg';
+import logo from '../../../../images/logo.png';
 
 const NavBar = () => {
     const { user, logout } = useAuth();
@@ -20,11 +20,11 @@ const NavBar = () => {
     }
     return (
         <div>
-            <Disclosure as="nav" className="bg-black w-full">
+            <Disclosure as="nav" className="w-full flex justify-center bg-black">
                 {({ open }) => (
                     <>
                         <div className="w-full mx-auto px-2">
-                            <div className="relative flex items-center justify-between h-16">
+                            <div className="relative flex items-center justify-center h-16">
                                 <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                                     {/* Mobile menu button*/}
                                     <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
@@ -37,21 +37,20 @@ const NavBar = () => {
                                     </Disclosure.Button>
                                 </div>
                                 {/* logo code */}
-                                <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                                <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start ">
                                     <div className="flex-shrink-0 flex items-center">
-                                        <div className="w-14">
+                                        <div className="w-14 lg:block md:block hidden pr-2">
                                             <img className="w-full" src={logo} alt="" />
                                         </div>
-                                        <p className="lg:text-2xl md:text-2xl sm:text-xl text-white font-bold">Alpha Fitness</p>
                                     </div>
-                                    <div className="hidden sm:block sm:ml-6 my-auto">
+                                    <div className="hidden sm:block mr-auto my-auto">
                                         <div className="flex space-x-4">
                                             {navigation.map((item) => (
                                                 <Link
                                                     key={item.name}
                                                     to={item.to}
                                                     className={classNames(
-                                                        'text-gray-300 hover:bg-blue-600 hover:text-white',
+                                                        'text-white hover:bg-blue-600 hover:text-white',
                                                         'px-3 py-1 rounded-md text-sm font-medium'
                                                     )}
                                                 >
@@ -86,7 +85,7 @@ const NavBar = () => {
                                             leaveFrom="transform opacity-100 scale-100"
                                             leaveTo="transform opacity-0 scale-95"
                                         >
-                                            <Menu.Items className="flex flex-col origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-md py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                            <Menu.Items className="flex flex-col origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-md py-1 bg-white ring-1 ring-white ring-opacity-5 focus:outline-none">
                                                 <img
                                                     className="h-12 w-12 rounded-full mx-auto"
                                                     src={user.photo ? user.photo : avatar}
@@ -94,7 +93,7 @@ const NavBar = () => {
                                                 />
                                                 <Menu.Item>
                                                     {() => (
-                                                        <p className="text-black text-xl font-bold p-2">{user.name ? user.name : user.displayName}</p>
+                                                        <p className="text-white text-xl font-bold p-2">{user.name ? user.name : user.displayName}</p>
                                                     )}
                                                 </Menu.Item>
                                                 {
@@ -102,20 +101,20 @@ const NavBar = () => {
                                                     &&
                                                     <Menu.Item>
                                                         {({ active }) => (
-                                                            <Link className="p-2  text-black hover:bg-blue-500 hover:text-white mx-2 rounded-md" to="/dashboard">Dashboard</Link>
+                                                            <Link className="p-2  text-white hover:bg-blue-500 hover:text-white mx-2 rounded-md" to="/dashboard">Dashboard</Link>
                                                         )}
                                                     </Menu.Item>
                                                 }
                                                 <Menu.Item>
                                                     {({ active }) => (
-                                                        <Link className="p-2  text-black hover:bg-blue-500 hover:text-white mx-2 rounded-md" onClick={logout} to="/home">Logout</Link>
+                                                        <Link className="p-2  text-white hover:bg-blue-500 hover:text-white mx-2 rounded-md" onClick={logout} to="/home">Logout</Link>
                                                     )}
                                                 </Menu.Item>
                                             </Menu.Items>
                                         </Transition>
                                     </Menu>
                                 </div>}
-                                {!user.email && <Link className="w-20 bg-blue-500 p-2 rounded-md font-semibold uppercase text-center text-white" to="/signin">Join</Link>}
+                                {!user.email && <Link className="w-20 bg-blue-500 p-2 rounded-md font-semibold uppercase text-center text-white absolute right-0" to="/signin">Join</Link>}
                             </div>
                         </div>
 
@@ -126,7 +125,7 @@ const NavBar = () => {
                                         key={item.name}
                                         to={item.to}
                                         className={classNames(
-                                            'text-gray-300 hover:bg-blue-600 hover:text-white',
+                                            'text-white hover:bg-blue-600 hover:text-white',
                                             'block px-3 py-2 rounded-md text-base font-medium'
                                         )}
                                     >

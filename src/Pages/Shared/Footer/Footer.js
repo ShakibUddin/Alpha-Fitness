@@ -2,7 +2,7 @@ import { faLocationArrow, faMailBulk, faPhone } from '@fortawesome/free-solid-sv
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { SocialIcon } from 'react-social-icons';
-import logo from '../../../images/logo.jpg';
+import logo from '../../../images/logo.png';
 import payment from '../../../images/payment.png';
 
 const Footer = () => {
