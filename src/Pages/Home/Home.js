@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useAuth from '../../Hooks/useAuth';
 import instructor from '../../images/instructor.png';
 import Contact from '../Contact/Contact';
 import Hero from './Hero/Hero';
@@ -10,7 +11,7 @@ import Stories from './Stories/Stories';
 
 const Home = () => {
     const membershipRef = React.createRef();
-
+    const { user } = useAuth();
     return (
         <div className="w-full flex flex-col items-center">
             <Hero gotoOnGetStartedClick={membershipRef}></Hero>
@@ -38,7 +39,7 @@ const Home = () => {
                 <MembershipFee></MembershipFee>
             </div>
             <Stories></Stories>
-            <Contact></Contact>
+            {user.email && <Contact></Contact>}
         </div >
     );
 };

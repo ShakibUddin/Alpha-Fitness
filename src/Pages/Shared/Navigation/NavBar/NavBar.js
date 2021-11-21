@@ -39,11 +39,11 @@ const NavBar = () => {
                                 {/* logo code */}
                                 <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start ">
                                     <div className="flex-shrink-0 flex items-center">
-                                        <div className="w-14 lg:block md:block hidden pr-2">
+                                        <div className="w-14 pr-2">
                                             <img className="w-full" src={logo} alt="" />
                                         </div>
                                     </div>
-                                    <div className="hidden sm:block mr-auto my-auto">
+                                    <div className="hidden sm:block mx-auto my-auto">
                                         <div className="flex space-x-4">
                                             {navigation.map((item) => (
                                                 <Link
