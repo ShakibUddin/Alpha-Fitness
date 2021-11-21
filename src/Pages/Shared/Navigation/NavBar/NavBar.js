@@ -20,7 +20,7 @@ const NavBar = () => {
     }
     return (
         <div>
-            <Disclosure as="nav" className="w-full flex justify-center bg-black">
+            <Disclosure as="nav" className="w-full bg-black">
                 {({ open }) => (
                     <>
                         <div className="w-full mx-auto px-2">
@@ -93,7 +93,7 @@ const NavBar = () => {
                                                 />
                                                 <Menu.Item>
                                                     {() => (
-                                                        <p className="text-white text-xl font-bold p-2">{user.name ? user.name : user.displayName}</p>
+                                                        <p className="text-black text-xl font-bold p-2">{user.name ? user.name : user.displayName}</p>
                                                     )}
                                                 </Menu.Item>
                                                 {
@@ -101,13 +101,13 @@ const NavBar = () => {
                                                     &&
                                                     <Menu.Item>
                                                         {({ active }) => (
-                                                            <Link className="p-2  text-white hover:bg-blue-500 hover:text-white mx-2 rounded-md" to="/dashboard">Dashboard</Link>
+                                                            <Link className="p-2  text-blue-500 hover:bg-blue-500 hover:text-white mx-2 rounded-md" to="/dashboard">Dashboard</Link>
                                                         )}
                                                     </Menu.Item>
                                                 }
                                                 <Menu.Item>
                                                     {({ active }) => (
-                                                        <Link className="p-2  text-white hover:bg-blue-500 hover:text-white mx-2 rounded-md" onClick={logout} to="/home">Logout</Link>
+                                                        <Link className="p-2  text-blue-500 hover:bg-blue-500 hover:text-white mx-2 rounded-md" onClick={logout} to="/home">Logout</Link>
                                                     )}
                                                 </Menu.Item>
                                             </Menu.Items>
