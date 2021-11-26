@@ -1,5 +1,7 @@
 # Alpha Fitness
 
+Alpha fitness a fitness center located in Sydney, Australia. 
+
 - Enroll in our specialised training
 - Learn from the experts
 - Join with cost friendly packages
