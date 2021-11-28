@@ -1,6 +1,6 @@
 # Alpha Fitness
 
-> Full Stack wrist watch website. Created using React, Firebase, Express and MongoDB
+> Full Stack gym website. Created using React, Firebase, Express and MongoDB
 > Live demo [_here_](https://alpha-fitness-sakib.netlify.app/). <!-- If you have the project hosted somewhere, include the link here. -->
 
 ## Table of Contents
@@ -56,9 +56,9 @@ Features Alpha Fitness includes are-
 
 ## Screenshots
 
-![Example screenshot](https://i.ibb.co/1Mg3Zr2/1.png)
+![Example screenshot](https://i.ibb.co/LdL7zBt/home.png)
 ![Example screenshot](https://i.ibb.co/ZJmwYVV/2.png)
-![Example screenshot](https://i.ibb.co/6y5C15z/3.png)
+![Example screenshot](https://i.ibb.co/QKwPLnr/consultation.png)
 ![Example screenshot](https://i.ibb.co/s5xTZkQ/4.png)
 ![Example screenshot](https://i.ibb.co/zPXxhvC/5.png)
 
